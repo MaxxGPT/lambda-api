@@ -15,6 +15,6 @@ pipelines:
                 COMMAND: 'upload-only'
                 ZIP_FILE: 'archive.zip'
                 S3_BUCKET: 'asatera-lambda/lambda'
-                #LOCAL_PATH: '$(pwd)'
+                LOCAL_PATH: '$(pwd)'
                 ACL: 'private'
                 
