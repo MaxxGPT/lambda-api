@@ -1,7 +1,7 @@
 image: node:12
 
 pipelines:
-  branches: # Pipelines that will be triggered when a push is made in the below branch
+  branches: # Pipelines should that will be triggered when a push is made in the below branch
     master:
       - step:
           name: Zip file
