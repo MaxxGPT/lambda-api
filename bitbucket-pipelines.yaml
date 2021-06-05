@@ -1,4 +1,4 @@
-image: node:12
+image: atlassian/default-image:2
 
 pipelines:
   branches: # Pipelines should that will be triggered when a push is made in the below branch
