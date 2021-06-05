@@ -16,6 +16,6 @@ pipelines:
                 AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
                 AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
                 S3_BUCKET: 'asatera-lambda'
-                LOCAL_PATH: 'asatera-lambda'
+                LOCAL_PATH: 'lambda'
                 ACL: 'private'
                 
