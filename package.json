@@ -15,6 +15,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/VueMongo/lambda-api#readme",
   "dependencies": {
+    "aws-sdk": "^2.922.0",
     "mongodb": "^3.6.9"
   }
 }
