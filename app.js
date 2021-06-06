@@ -1,6 +1,7 @@
 'use strict'
 
 var MongoClient = require('mongodb').MongoClient;
+const AWS = require('aws-sdk');
 
 let atlas_connection_uri;
 let cachedDb = null;
@@ -12,9 +13,15 @@ exports.handler = (event, context, callback) => {
         processEvent(event, context, callback);
     } 
     else {
-        atlas_connection_uri = uri;
-        console.log('the Atlas connection string is ' + atlas_connection_uri);
-        processEvent(event, context, callback);
+        const kms = new AWS.KMS();
+                kms.decrypt({ CiphertextBlob: new Buffer(uri, 'base64') }, (err, data) => {
+                    if (err) {
+                        console.log('Decrypt error:', err);
+                        return callback(err);
+                    }
+                    atlas_connection_uri = data.Plaintext.toString('ascii');
+            processEvent(event, context, callback);
+        });
     } 
 };
 
