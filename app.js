@@ -35,9 +35,6 @@ exports.handler = (event, context, callback) => {
     }
 };
 
-
-
-
 function processEvent (event, context, callback) {
     console.log('Calling MongoDB Atlas from AWS Lambda with event: ' + JSON.stringify(event));
     var jsonContents = JSON.parse(JSON.stringify(event));
