@@ -14,7 +14,7 @@ exports.handler = (event, context, callback) => {
     } 
     else {
         const kms = new AWS.KMS();
-                kms.decrypt({ CiphertextBlob: new Buffer(uri, 'base64') }, (err, data) => {
+                kms.decrypt({ CiphertextBlob: Buffer.from(uri, 'base64') }, (err, data) => {
                     if (err) {
                         console.log('Decrypt error:', err);
                         return callback(err);
