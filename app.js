@@ -46,11 +46,13 @@ function processEvent (event, context, callback) {
             console.log('=> connecting to database');
             MongoClient.connect(atlas_connection_uri, function (err, client) {
                 cachedDb = client.db('NewsAPI');
-                return createDoc(cachedDb, jsonContents, callback);
+                callback(null, "SUCCESS");
+                //return createDoc(cachedDb, jsonContents, callback);
             });
         }
         else {
-            return createDoc(cachedDb, jsonContents, callback);
+            callback(null, "SUCCESS");
+            //return createDoc(cachedDb, jsonContents, callback);
         }
     }
     catch (err) {
@@ -58,6 +60,7 @@ function processEvent (event, context, callback) {
     }
 };
  
+ /*
 function createDoc (db, json, callback) {
   db.collection('Articles').insertOne( json, function(err, result) {
       if(err!=null) {
@@ -72,4 +75,4 @@ function createDoc (db, json, callback) {
       //this will let our function re-use the connection on the next called (if it can re-use the same Lambda container)
       //db.close();
   });
-};
+};*/
