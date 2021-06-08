@@ -2,9 +2,10 @@
   "name": "lambda-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "invoke": "sls invoke local -f hello"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,12 @@
   "homepage": "https://bitbucket.org/VueMongo/lambda-api#readme",
   "dependencies": {
     "aws-sdk": "^2.922.0",
-    "mongodb": "^3.6.9"
+    "dotenv": "^10.0.0",
+    "mongodb": "^3.6.9",
+    "mongoose": "^5.12.13",
+    "serverless": "^2.45.1"
+  },
+  "devDependencies": {
+    "serverless-offline": "^7.0.0"
   }
 }

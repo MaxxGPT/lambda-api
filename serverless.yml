@@ -1,0 +1,65 @@
+service: aws-lambda-api-service
+frameworkVersion: '2'
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: us-east-1
+functions:
+  listArticles:
+    handler: handlers/articles_handler.list 
+    events:
+      - http:
+          path: articles
+          method: get
+          cors: true
+  showArticle:
+    handler: handlers/articles_handler.show
+    events:
+      - http:
+          path: articles/{id}
+          method: get
+          cors: true
+  listSources:
+    handler: handlers/sources_handler.list
+    events:
+      - http:
+          path: sources
+          method: get
+          cors: true
+  showSource:
+    handler: handlers/sources_handler.show
+    events:
+      - http:
+          path: sources/{id}
+          method: get
+          cors: true
+  updateSource:
+    handler: handlers/sources_handler.update
+    events:
+      - http:
+          path: sources/{id}
+          method: put
+          cors: true
+          request:
+            parameters:
+              querystrings:
+                url: true
+  createSource:
+    handler: handlers/sources_handler.create
+    events:
+      - http:
+          path: sources
+          method: post
+          cors: true
+  removeArticle:
+    handler: handlers/sources_handler.remove
+    events:
+      - http:
+          path: sources/{id}
+          method: delete
+          cors: true
+useDotenv: true
+plugins:
+  - serverless-offline
