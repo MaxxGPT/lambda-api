@@ -2,27 +2,33 @@
 
 var MongoClient = require('mongodb').MongoClient;
 const AWS = require('aws-sdk');
+AWS.config.update({ region: 'us-east-1' });
 
+const functionName = process.env.AWS_LAMBDA_FUNCTION_NAME;
+const encrypted = process.env['MONGODB_ATLAS_CLUSTER_URI'];
 let atlas_connection_uri;
 let cachedDb = null;
 
 exports.handler = (event, context, callback) => {
-    var uri = process.env['MONGODB_ATLAS_CLUSTER_URI'];
-    
-    if (atlas_connection_uri != null) {
-        processEvent(event, context, callback);
-    } 
-    else {
+    if (!atlas_connection_uri) {
+        // Decrypt code should run once and variables stored outside of the
+        // function handler so that these are atlas_connection_uri once per container
         const kms = new AWS.KMS();
-                kms.decrypt({ CiphertextBlob: Buffer.from(uri, 'base64') }, (err, data) => {
-                    if (err) {
-                        console.log('Decrypt error:', err);
-                        return callback(err);
-                    }
-                    atlas_connection_uri = data.Plaintext.toString('ascii');
-            processEvent(event, context, callback);
-        });
-    } 
+        try {
+            const req = {
+                CiphertextBlob: Buffer.from(encrypted, 'base64'),
+                EncryptionContext: { LambdaFunctionName: functionName },
+            };
+            const data = await kms.decrypt(req).promise();
+            atlas_connection_uri = data.Plaintext.toString('ascii');
+        } catch (err) {
+            console.log('Decrypt error:', err);
+            throw err;
+        }
+    }
+    
+    processEvent(event, context, callback);
+    
 };
 
 function processEvent(event, context, callback) {
