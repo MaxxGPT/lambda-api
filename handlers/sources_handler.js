@@ -1,8 +1,6 @@
 'use strict';
 const connectToDatabase = require('../db')
-, Article = require('../models/article.model')
 , Source = require('../models/source.model')
-, Usage = require('../models/usage.model')
 , querystring = require('querystring');
 
 module.exports.list = (event, context, callback) => {

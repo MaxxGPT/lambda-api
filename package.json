@@ -17,10 +17,13 @@
   "homepage": "https://bitbucket.org/VueMongo/lambda-api#readme",
   "dependencies": {
     "aws-sdk": "^2.922.0",
+    "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
-    "serverless": "^2.45.1"
+    "serverless": "^2.45.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "serverless-offline": "^7.0.0"

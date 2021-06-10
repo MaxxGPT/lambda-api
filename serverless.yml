@@ -42,10 +42,6 @@ functions:
           path: sources/{id}
           method: put
           cors: true
-          request:
-            parameters:
-              querystrings:
-                url: true
   createSource:
     handler: handlers/sources_handler.create
     events:
@@ -53,12 +49,82 @@ functions:
           path: sources
           method: post
           cors: true
-  removeArticle:
+  removeSource:
     handler: handlers/sources_handler.remove
     events:
       - http:
           path: sources/{id}
           method: delete
+          cors: true
+  listSubscriptions:
+    handler: handlers/subscriptions_handler.list 
+    events:
+      - http:
+          path: subscriptions
+          method: get
+          cors: true
+  createUser:
+    handler: handlers/users_handler.create
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+  userMe:
+    handler: handlers/users_handler.me 
+    events:
+      - http:
+          path: users/me
+          method: get
+          cors: true
+  getApiKey:
+    handler: handlers/users_handler.get_api_key 
+    events:
+      - http:
+          path: users/key
+          method: get
+          cors: true
+  getUsage:
+    handler: handlers/users_handler.get_usage 
+    events:
+      - http:
+          path: users/usage
+          method: get
+          cors: true
+  removeUsers:
+    handler: handlers/users_handler.remove
+    events:
+      - http:
+          path: users/{id}
+          method: delete
+          cors: true
+  updateUser:
+    handler: handlers/users_handler.update
+    events:
+      - http:
+          path: users/{id}
+          method: patch
+          cors: true
+  userRegister:
+    handler: handlers/users_handler.register
+    events:
+      - http:
+          path: users/signin
+          method: post
+          cors: true
+  userLogin:
+    handler: handlers/users_handler.login
+    events:
+      - http:
+          path: users/login
+          method: post
+          cors: true
+  userActivate:
+    handler: handlers/users_handler.activate
+    events:
+      - http:
+          path: users/activate/{token}
+          method: get
           cors: true
 useDotenv: true
 plugins:
