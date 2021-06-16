@@ -153,7 +153,7 @@ module.exports.list = (event, context, callback) => {
                 queryParams: queryParams,
                 limit: params.limit ? parseInt(params.limit, 10) : 100,
                 sortBy: sortBy,
-                originalUrl: event.headers.host,
+                originalUrl: event && event.headers ? event.headers.host : '',
                 //user: req.user,
               }, function (err, articles) {
                 if (err) {

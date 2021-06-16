@@ -3,7 +3,7 @@ const connectToDatabase = require('../db')
 , User = require('../models/user.model')
 , Usage = require('../models/usage.model')
 , jwt = require("jsonwebtoken")
-, uuidv4 = require("uuid/v4")
+, { v4: uuidv4 } = require('uuid')
 , subWeeks = require("date-fns/subWeeks")
 , querystring = require('querystring');
 
@@ -22,8 +22,10 @@ module.exports.register = (event, context, callback) => {
     connectToDatabase()
     .then(() => {
         const randomKey = uuidv4();
-          var newUser = new Users({
-            name: name,
+        let body = querystring.decode(event.body);
+          var newUser = new User({
+            lastName: body.lastName,
+            firstName: body.firstName,
             email: email,
             password: password,
             apiKey: randomKey.replace(/-/g, ""),
@@ -146,7 +148,7 @@ module.exports.activate = (event, context, callback) => {
                     body: err.message
                 });
             } else {
-              Users.findOneAndUpdate(
+              User.findOneAndUpdate(
                 {
                   email: decode.email,
                 },
@@ -192,7 +194,7 @@ module.exports.create = (event, context, callback) => {
       .then(() => {
         let body = querystring.decode(event.body);
         const randomKey = uuidv4();
-        var newUser = new Users({
+        var newUser = new User({
           firstName: body.firstName,
           lastName: body.lastName,
           email: body.email,
@@ -233,7 +235,7 @@ module.exports.update = (event, context, callback) => {
           ) {
             delete body.password;
         }
-        Users.findById(event.pathParameters.id)
+        User.findById(event.pathParameters.id)
         .exec((err, _userFromModel)=>{
             if(err){
                 callback(null, {
@@ -285,7 +287,7 @@ module.exports.remove = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     connectToDatabase()
       .then(() => {
-            Users.remove({_id:event.pathParameters.id},(err)=>{
+            User.remove({_id:event.pathParameters.id},(err)=>{
               if(err){
                   callback(null, {
                       statusCode: err.statusCode || 500,
@@ -312,7 +314,7 @@ module.exports.remove = (event, context, callback) => {
 module.exports.get_api_key = (event, context, callback) => {
     const randomKey = uuidv4();
     const apiKey = randomKey.replace(/-/g, "");
-    Users.findByIdAndUpdate(
+    User.findByIdAndUpdate(
         event.pathParameters.id,
         {
             $set: {
@@ -362,7 +364,7 @@ module.exports.get_usage = (event, context, callback) => {
         }else{
             callback(null, {
                 statusCode: 200,
-                body: JSON.stringify(_usages);
+                body: JSON.stringify(_usages)
             })
         }
     });
