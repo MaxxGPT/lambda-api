@@ -46,13 +46,11 @@ module.exports.show = (event, context, callback) => {
   
 module.exports.list = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    console.log('Función de lista')
     let queryParams = {};
     let sortBy = {};
     let params = event.queryStringParameters ? event.queryStringParameters : {};
     connectToDatabase()
       .then(() => {
-        console.log("Conectado");
         ApiMiddleware.validate(params, (err)=>{
           if(err){
             callback(null, {
@@ -151,7 +149,6 @@ module.exports.list = (event, context, callback) => {
               }
               /* If there is no domains param, search with other params */
             } else {
-              console.log("Sin dominios");
               getArticles({
                 queryParams: queryParams,
                 limit: params.limit ? parseInt(params.limit, 10) : 100,
@@ -159,7 +156,6 @@ module.exports.list = (event, context, callback) => {
                 originalUrl: event.headers.host,
                 //user: req.user,
               }, function (err, articles) {
-                console.log("Resultado");
                 if (err) {
                     callback(null, {
                         statusCode: err.statusCode || 500,
