@@ -1,4 +1,5 @@
 service: aws-lambda-api-service
+variablesResolutionMode: 20210326
 frameworkVersion: '2'
 provider:
   name: aws
@@ -6,9 +7,12 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: us-east-1
+  environment:
+    MONGODB_ATLAS_CLUSTER_URI: ${file(./config.js):fetchMongoUrl}
 functions:
   listArticles:
-    handler: handlers/articles_handler.list 
+    handler: handlers/articles_handler.list
+    timeout: 60
     events:
       - http:
           path: articles
@@ -129,3 +133,4 @@ functions:
 useDotenv: true
 plugins:
   - serverless-offline
+  - serverless-middleware
