@@ -43,7 +43,7 @@ module.exports.connectToDatabase = () => {
           useCreateIndex: true,
           useUnifiedTopology: true,
           useFindAndModify: false,
-          connectTimeoutMS: 10000,
+          connectTimeoutMS: 60000,
           // Buffering means mongoose will queue up operations if it gets
           // disconnected from MongoDB and send them when it reconnects.
           // With serverless, better to fail fast if not connected.
