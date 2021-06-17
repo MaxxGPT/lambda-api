@@ -1,5 +1,5 @@
 'use strict';
-const connectToDatabase = require('../db')
+const Database = require('../db')
 , Article = require('../models/article.model')
 , Source = require('../models/source.model')
 , Usage = require('../models/usage.model')
@@ -8,7 +8,7 @@ const connectToDatabase = require('../db')
 module.exports.show = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     let params = event.queryStringParameters ? event.queryStringParameters : {};
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
         ApiMiddleware.validate(params, (err)=>{
           if(err){
@@ -49,7 +49,7 @@ module.exports.list = (event, context, callback) => {
     let queryParams = {};
     let sortBy = {};
     let params = event.queryStringParameters ? event.queryStringParameters : {};
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
         ApiMiddleware.validate(params, (err)=>{
           if(err){

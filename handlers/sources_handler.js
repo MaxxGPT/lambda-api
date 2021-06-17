@@ -1,12 +1,13 @@
 'use strict';
-const connectToDatabase = require('../db')
+
+const Database = require('../db')
 , Source = require('../models/source.model')
 , querystring = require('querystring')
 , ApiMiddleware = require('../middlewares/api_key_middleware');
 
 module.exports.list = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
           let queryParams = {};
           let params = event.queryStringParameters ? event.queryStringParameters : {};
@@ -88,7 +89,7 @@ function getSources(req, cb){
 module.exports.show = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
         let params = event.queryStringParameters ? event.queryStringParameters : {};
           ApiMiddleware.validate(params, (err)=>{
@@ -121,7 +122,7 @@ module.exports.show = (event, context, callback) => {
 
 module.exports.create = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
           const newSource = new Source(querystring.decode(event.body));
           newSource.save((err, _source)=>{
@@ -150,7 +151,7 @@ module.exports.create = (event, context, callback) => {
 
 module.exports.update = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
           Source.findByIdAndUpdate(event.pathParameters.id,
             {
@@ -186,7 +187,7 @@ module.exports.update = (event, context, callback) => {
 
 module.exports.remove = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
           Source.remove({_id:event.pathParameters.id},(err)=>{
               if(err){

@@ -1,10 +1,10 @@
 'use strict';
-const connectToDatabase = require('../db')
+const Database = require('../db')
 , Subscriptions = require('../models/subscription.model');
 
 module.exports.list = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
         Subscriptions
         .find({})

@@ -12,7 +12,7 @@ provider:
 functions:
   listArticles:
     handler: handlers/articles_handler.list
-    timeout: 60
+    timeout: 30
     events:
       - http:
           path: articles
@@ -20,6 +20,7 @@ functions:
           cors: true
   showArticle:
     handler: handlers/articles_handler.show
+    timeout: 30
     events:
       - http:
           path: articles/{id}
@@ -27,6 +28,7 @@ functions:
           cors: true
   listSources:
     handler: handlers/sources_handler.list
+    timeout: 30
     events:
       - http:
           path: sources
@@ -34,6 +36,7 @@ functions:
           cors: true
   showSource:
     handler: handlers/sources_handler.show
+    timeout: 30
     events:
       - http:
           path: sources/{id}
@@ -41,6 +44,7 @@ functions:
           cors: true
   updateSource:
     handler: handlers/sources_handler.update
+    timeout: 30
     events:
       - http:
           path: sources/{id}
@@ -48,6 +52,7 @@ functions:
           cors: true
   createSource:
     handler: handlers/sources_handler.create
+    timeout: 30
     events:
       - http:
           path: sources
@@ -55,6 +60,7 @@ functions:
           cors: true
   removeSource:
     handler: handlers/sources_handler.remove
+    timeout: 30
     events:
       - http:
           path: sources/{id}
@@ -62,6 +68,7 @@ functions:
           cors: true
   listSubscriptions:
     handler: handlers/subscriptions_handler.list 
+    timeout: 30
     events:
       - http:
           path: subscriptions
@@ -69,13 +76,15 @@ functions:
           cors: true
   createUser:
     handler: handlers/users_handler.create
+    timeout: 30
     events:
       - http:
           path: users
           method: post
           cors: true
   userMe:
-    handler: handlers/users_handler.me 
+    handler: handlers/users_handler.me
+    timeout: 30
     events:
       - http:
           path: users/me
@@ -83,6 +92,7 @@ functions:
           cors: true
   getApiKey:
     handler: handlers/users_handler.get_api_key 
+    timeout: 30
     events:
       - http:
           path: users/key
@@ -90,6 +100,7 @@ functions:
           cors: true
   getUsage:
     handler: handlers/users_handler.get_usage 
+    timeout: 30
     events:
       - http:
           path: users/usage
@@ -97,6 +108,7 @@ functions:
           cors: true
   removeUsers:
     handler: handlers/users_handler.remove
+    timeout: 30
     events:
       - http:
           path: users/{id}
@@ -104,6 +116,7 @@ functions:
           cors: true
   updateUser:
     handler: handlers/users_handler.update
+    timeout: 30
     events:
       - http:
           path: users/{id}
@@ -111,6 +124,7 @@ functions:
           cors: true
   userRegister:
     handler: handlers/users_handler.register
+    timeout: 30
     events:
       - http:
           path: users/signin
@@ -118,6 +132,7 @@ functions:
           cors: true
   userLogin:
     handler: handlers/users_handler.login
+    timeout: 30
     events:
       - http:
           path: users/login
@@ -125,6 +140,7 @@ functions:
           cors: true
   userActivate:
     handler: handlers/users_handler.activate
+    timeout: 30
     events:
       - http:
           path: users/activate/{token}

@@ -1,16 +1,17 @@
 'use strict';
-const connectToDatabase = require('../db')
+const Database = require('../db')
 , User = require('../models/user.model')
 , Usage = require('../models/usage.model')
 , jwt = require("jsonwebtoken")
 , { v4: uuidv4 } = require('uuid')
+, emailService = require('../services/mail.service')
 , subWeeks = require("date-fns/subWeeks")
 , querystring = require('querystring');
 
 module.exports.me = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
 
       });
@@ -19,7 +20,7 @@ module.exports.me = (event, context, callback) => {
 module.exports.register = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
-    connectToDatabase()
+    Database.connectToDatabase()
     .then(() => {
         const randomKey = uuidv4();
         let body = querystring.decode(event.body);
@@ -101,7 +102,7 @@ module.exports.register = (event, context, callback) => {
 
 module.exports.login = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
         let body = querystring.decode(event.body);
         const randomKey = uuidv4();
@@ -135,7 +136,7 @@ module.exports.login = (event, context, callback) => {
 module.exports.activate = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
-    connectToDatabase()
+    Database.connectToDatabase()
     .then(() => {
         jwt.verify(event.pathParameters.token, process.env.JWT_ACCOUNT_ACTIVATION, function (
             err,
@@ -190,7 +191,7 @@ module.exports.activate = (event, context, callback) => {
 
 module.exports.create = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
         let body = querystring.decode(event.body);
         const randomKey = uuidv4();
@@ -227,7 +228,7 @@ module.exports.create = (event, context, callback) => {
 
 module.exports.update = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
           let body = querystring.decode(event.body);
         if (
@@ -285,7 +286,7 @@ module.exports.update = (event, context, callback) => {
 
 module.exports.remove = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    connectToDatabase()
+    Database.connectToDatabase()
       .then(() => {
             User.remove({_id:event.pathParameters.id},(err)=>{
               if(err){
