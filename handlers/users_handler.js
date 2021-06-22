@@ -5,16 +5,25 @@ const Database = require('../db')
 , jwt = require("jsonwebtoken")
 , { v4: uuidv4 } = require('uuid')
 , emailService = require('../services/mail.service')
+, tokenMiddleware = require('../middlewares/token_middleware')
 , subWeeks = require("date-fns/subWeeks")
 , querystring = require('querystring');
 
 module.exports.me = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
-    Database.connectToDatabase()
-      .then(() => {
-
-      });
+    tokenMiddleware.validateToken({
+      event: event
+    },(err,_user)=>{
+      if(err){
+        callback(null, error);
+      }else{
+        callback(null, {
+          statusCode: 200,
+          body: JSON.stringify(_user)
+        });
+      }
+    })
   };
 
 module.exports.register = (event, context, callback) => {
@@ -23,18 +32,19 @@ module.exports.register = (event, context, callback) => {
     Database.connectToDatabase()
     .then(() => {
         const randomKey = uuidv4();
-        let body = querystring.decode(event.body);
+        let body = JSON.parse(event.body);
           var newUser = new User({
-            lastName: body.lastName,
-            firstName: body.firstName,
-            email: email,
-            password: password,
+            /*lastName: body.lastName,
+            firstName: body.firstName,*/
+            name: body.name,
+            email: body.email,
+            password: body.password,
             apiKey: randomKey.replace(/-/g, ""),
           });
           newUser.save(function (err, user) {
             if (err) {
               //throw(err);
-              if (err.errmsg.includes("duplicate")) {
+              if (err.msg && err.msg.includes("duplicate")) {
                 callback(null, {
                     statusCode: err.statusCode || 405,
                     headers: { 'Content-Type': 'text/plain' },
@@ -42,7 +52,7 @@ module.exports.register = (event, context, callback) => {
                 });
               } else {
                 callback(null, {
-                    statusCode: err.statusCode || 500,
+                    statusCode: err.statusCode || 400,
                     headers: { 'Content-Type': 'text/plain' },
                     body: err.message
                 });
@@ -51,7 +61,7 @@ module.exports.register = (event, context, callback) => {
               //Generate Token
               const token = jwt.sign(
                 {
-                  email,
+                  email: user.email,
                 },
                 process.env.JWT_ACCOUNT_ACTIVATION,
                 {
@@ -61,11 +71,11 @@ module.exports.register = (event, context, callback) => {
     
               let mailOptions = {
                 from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
-                to: email,
+                to: body.email,
                 subject: "Account Activation Link",
                 html: `
                 <h1>Please Click link to activate your account</h1>
-                <p><a href="${process.env.CLIENT_URL}/api/auth/activate/${token}">ACTIVATE</a></p>
+                <p><a href="http://localhost:4000/dev/users/activate/${token}">ACTIVATE</a></p>
                 <hr/>
                 <p>This email contain sensitive info</p>
                 <p>${process.env.CLIENT_URL}</p>
@@ -78,7 +88,7 @@ module.exports.register = (event, context, callback) => {
               ) {
                 if (err) {
                     callback(null, {
-                        statusCode: err.statusCode || 500,
+                        statusCode: err.statusCode || 400,
                         headers: { 'Content-Type': 'text/plain' },
                         body: err.message
                     });
@@ -104,22 +114,29 @@ module.exports.login = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     Database.connectToDatabase()
       .then(() => {
-        let body = querystring.decode(event.body);
+        let body = JSON.parse(event.body);
         const randomKey = uuidv4();
         User.findOne({
             email: body.email
         })
-        .exec(function (err, user) {
+        .exec(function (err, _user) {
           if (err) {
             callback(null, {
                 statusCode: err.statusCode || 500,
                 headers: { 'Content-Type': 'text/plain' },
-                body: err.message
+                body: JSON.stringify({error: err.message})
             });
-          } else {
+          } else if(!_user || !_user.validPassword(body.password, _user.password)){
+            callback(null, {
+              statusCode: 500,
+              headers: { 'Content-Type': 'text/plain' },
+              body: JSON.stringify({error: 'Wrong credentials'})
+            });
+          } else{
+            _user.generateToken();
             callback(null, {
                 statusCode: 200,
-                body: JSON.stringify(user)
+                body: JSON.stringify(_user)
             });
           }
         });
@@ -128,7 +145,7 @@ module.exports.login = (event, context, callback) => {
         callback(null, {
             statusCode: err.statusCode || 500,
             headers: { 'Content-Type': 'text/plain' },
-            body: err.message
+            body: {error: err.message}
         });
       })
 }
@@ -173,8 +190,10 @@ module.exports.activate = (event, context, callback) => {
                     });
                 } else {
                     callback(null, {
-                        statusCode: 200,
-                        body: JSON.stringify(_user)
+                        statusCode: 302,
+                        headers:{
+                          Location: process.env.CLIENT_URL+"/login",
+                        }
                     });
                 }
               });
@@ -315,58 +334,84 @@ module.exports.remove = (event, context, callback) => {
 module.exports.get_api_key = (event, context, callback) => {
     const randomKey = uuidv4();
     const apiKey = randomKey.replace(/-/g, "");
-    User.findByIdAndUpdate(
-        event.pathParameters.id,
-        {
-            $set: {
-                apiKey
+    Database.connectToDatabase()
+      .then(() => {
+        User.findByIdAndUpdate(
+            event.pathParameters.id,
+            {
+                $set: {
+                    apiKey
+                },
             },
-        },
-        (err) => {
-            if (err) {
-                callback(null, {
-                    statusCode: err.statusCode || 500,
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: err.message
-                });
-            } else {
-                callback(null, {
-                    statusCode: 200,
-                    body: JSON.stringify({ apiKey })
-                })
+            (err) => {
+                if (err) {
+                    callback(null, {
+                        statusCode: err.statusCode || 500,
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: err.message
+                    });
+                } else {
+                    callback(null, {
+                        statusCode: 200,
+                        body: JSON.stringify({ apiKey })
+                    })
+                }
             }
-        }
-    );
+        );
+      }).catch((err)=>{
+        callback(null, {
+            statusCode: err.statusCode || 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: err.message
+        });
+    })
 }
 
 module.exports.get_usage = (event, context, callback) => {
-    Usage.aggregate([{
-        $match: {
-            user: event.pathParameters.id,
-            date: { $gte: subWeeks(new Date(), 1) }
-        }
-        }, {
-        $group: {
-            _id: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
-            req: { $sum: 1 }
-        }
-        }, {
-        "$sort": { "_id": 1 },
-        }, 
-        { "$limit": 7 }
-    ])
-    .exec((err, _usages)=>{
-        if(err){
-            callback(null, {
-                statusCode: err.statusCode || 500,
-                headers: { 'Content-Type': 'text/plain' },
-                body: err.message
+  Database.connectToDatabase()
+      .then(() => {
+        tokenMiddleware.validateToken({
+          event: event
+        },(err, _user)=>{        
+          if(err){
+            callback(null, error);
+          }else{
+            Usage.aggregate([{
+                $match: {
+                    user: _user.id,
+                    date: { $gte: subWeeks(new Date(), 1) }
+                }
+                }, {
+                $group: {
+                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+                    req: { $sum: 1 }
+                }
+                }, {
+                "$sort": { "_id": 1 },
+                }, 
+                { "$limit": 7 }
+            ])
+            .exec((err, _usages)=>{
+                if(err){
+                    callback(null, {
+                        statusCode: err.statusCode || 500,
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: err.message
+                    });
+                }else{
+                    callback(null, {
+                        statusCode: 200,
+                        body: JSON.stringify(_usages)
+                    })
+                }
             });
-        }else{
-            callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(_usages)
-            })
-        }
-    });
+          }
+        })
+      }).catch((err)=>{
+        callback(null, {
+            statusCode: err.statusCode || 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: err.message
+        });
+    })
   }

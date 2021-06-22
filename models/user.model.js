@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-//const { stringify } = require('uuid');
+const bcrypt = require("bcrypt")
+, jwt = require("jsonwebtoken");
 
 const historySchema = new mongoose.Schema({
   field: String, value: String, updated_by: {
@@ -18,7 +18,12 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
     },
-    firstName: {
+    name: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+    /*firstName: {
       type: String,
       trim: true,
       required: true,
@@ -26,7 +31,7 @@ const userSchema = new mongoose.Schema(
     lastName: {
       type: String,
       required: true,
-    },
+    },*/
     password: {
       type: String,
       required: true,
@@ -52,6 +57,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "free"
     },
+    token: {
+      type: String,
+      default: "free"
+    },
     apiKey: String,
     status: { type: "Boolean", default: false },
     history: [historySchema]
@@ -63,6 +72,15 @@ userSchema.methods.generateHash = function (cb) {
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), cb);
   return cb();
 };
+
+userSchema.methods.generateToken = function(){
+  this.token = jwt.sign({
+        email: this.email,        
+        _id: this._id
+      },
+      process.env.JWT_ACCOUNT_ACTIVATION
+    );
+}
 
 userSchema.methods.validPassword = function (password, hash) {
   return bcrypt.compareSync(password, hash);
