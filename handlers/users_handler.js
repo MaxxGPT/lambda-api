@@ -9,6 +9,14 @@ const Database = require('../db')
 , subWeeks = require("date-fns/subWeeks")
 , querystring = require('querystring');
 
+const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
+const poolData = {
+   UserPoolId: "us-east-1_Gg3dAhbSN",
+   ClientId: "4uslius1eivjfgg6mn62gpup5q"
+};
+const pool_region = "us-east-1";
+const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
 module.exports.me = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
@@ -59,6 +67,12 @@ module.exports.register = (event, context, callback) => {
               }
             } else {
               //Generate Token
+              var attributeList = [];
+              attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute(
+                { 
+                  Name: "email", 
+                  Value: _user.email 
+                }));
               const token = jwt.sign(
                 {
                   email: user.email,
@@ -68,37 +82,48 @@ module.exports.register = (event, context, callback) => {
                   expiresIn: 60 * 60 * 24, //expires in a day
                 }
               );
-    
-              let mailOptions = {
-                from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
-                to: body.email,
-                subject: "Account Activation Link",
-                html: `
-                <h1>Please Click link to activate your account</h1>
-                <p><a href="http://localhost:4000/dev/users/activate/${token}">ACTIVATE</a></p>
-                <hr/>
-                <p>This email contain sensitive info</p>
-                <p>${process.env.CLIENT_URL}</p>
-              `,
-              };
-    
-              emailService.sendEmail({ mailOptions: mailOptions }, function (
-                err,
-                msg
-              ) {
-                if (err) {
-                    callback(null, {
-                        statusCode: err.statusCode || 400,
-                        headers: { 'Content-Type': 'text/plain' },
-                        body: err.message
-                    });
-                } else {
-                    callback(null, {
-                        statusCode: 200,
-                        body: JSON.stringify({token})
-                    });
+              userPool.signUp(_user.name, body.password, attributeList, null, function (err, result) {
+                if (err){
+                  callback(null, {
+                    statusCode: err.statusCode || 400,
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: err.message
+                  });     
+                }else{
+                  let mailOptions = {
+                    from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
+                    to: body.email,
+                    subject: "Account Activation Link",
+                    html: `
+                    <h1>Please Click link to activate your account</h1>
+                    <p><a href="http://localhost:4000/dev/users/activate/${token}">ACTIVATE</a></p>
+                    <hr/>
+                    <p>This email contain sensitive info</p>
+                    <p>${process.env.CLIENT_URL}</p>
+                  `,
+                  };
+        
+                  emailService.sendEmail({ mailOptions: mailOptions }, function (
+                    err,
+                    msg
+                  ) {
+                    if (err) {
+                        callback(null, {
+                            statusCode: err.statusCode || 400,
+                            headers: { 'Content-Type': 'text/plain' },
+                            body: err.message
+                        });
+                    } else {
+                        callback(null, {
+                            statusCode: 200,
+                            body: JSON.stringify({token})
+                        });
+                    }
+                  });
                 }
-              });
+                
+              })
+    
             }
           });
     }).catch((err)=>{
