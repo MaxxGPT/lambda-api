@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },*/
+    cognito_id: {
+      type:'String'
+    },
     password: {
       type: String,
       required: true,

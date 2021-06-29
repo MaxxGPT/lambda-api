@@ -7,49 +7,106 @@ const Database = require('../db')
 , emailService = require('../services/mail.service')
 , tokenMiddleware = require('../middlewares/token_middleware')
 , subWeeks = require("date-fns/subWeeks")
-, querystring = require('querystring');
+, querystring = require('querystring')
+, AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 
-const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 const poolData = {
-   UserPoolId: "us-east-1_Gg3dAhbSN",
-   ClientId: "4uslius1eivjfgg6mn62gpup5q"
+   UserPoolId: process.env.COGNITO_USER_POOL,
+   ClientId: process.env.COGNITO_USER_CLIENT
 };
-const pool_region = "us-east-1";
+const pool_region = process.env.COGNITO_REGION;
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
 module.exports.me = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-  
-    tokenMiddleware.validateToken({
-      event: event
-    },(err,_user)=>{
-      if(err){
-        callback(null, error);
-      }else{
+    Database.connectToDatabase()
+    .then(() => {
+      tokenMiddleware.validateToken({
+        event: event
+      },(err,data)=>{
+        if(err){
+          callback(null, err);
+        }else{
+          User.findOne({
+            cognito_id: data.username
+          }).exec((err, _user)=>{
+            if(err){
+              callback(null, {
+                statusCode: err.statusCode || 403,
+                headers: { 'Content-Type': 'text/plain' },
+                body: err.message
+              });
+            }else if(!_user){
+              callback(null, {
+                statusCode: 403,
+                headers: { 'Content-Type': 'text/plain' },
+                body: 'Incorrect User'
+            });
+            }else{
+              callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(_user)
+              });
+            }
+          });
+        }
+      })
+    }).catch((err)=>{
         callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(_user)
+            statusCode: err.statusCode || 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: err.message
         });
-      }
     })
   };
 
 module.exports.register = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
+
+    /*let attributeList = [];
+    let body = JSON.parse(event.body);
+              attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute(
+                { 
+                  Name: "email", 
+                  Value: body.email 
+                }));
+              const token = jwt.sign(
+                {
+                  email: body.email,
+                },
+                process.env.JWT_ACCOUNT_ACTIVATION,
+                {
+                  expiresIn: 60 * 60 * 24, //expires in a day
+                }
+              );
+              userPool.signUp(body.name, body.password, attributeList, null, function (err, result) {
+                if (err){
+                  callback(null, {
+                    statusCode: err.statusCode || 400,
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: err.message
+                  });     
+                }else{
+                  callback(null, {
+                    statusCode: 200,
+                    body: JSON.stringify({token})
+                });
+                }
+              });*/
   
     Database.connectToDatabase()
     .then(() => {
         const randomKey = uuidv4();
         let body = JSON.parse(event.body);
-          var newUser = new User({
+          let newUser = new User({
             /*lastName: body.lastName,
             firstName: body.firstName,*/
             name: body.name,
             email: body.email,
             password: body.password,
-            apiKey: randomKey.replace(/-/g, ""),
+            apiKey: randomKey.replace(/-/g, "")
           });
-          newUser.save(function (err, user) {
+          newUser.save(function (err, _user) {
             if (err) {
               //throw(err);
               if (err.msg && err.msg.includes("duplicate")) {
@@ -67,22 +124,22 @@ module.exports.register = (event, context, callback) => {
               }
             } else {
               //Generate Token
-              var attributeList = [];
+              let attributeList = [];
               attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute(
                 { 
                   Name: "email", 
-                  Value: _user.email 
+                  Value: body.email 
                 }));
               const token = jwt.sign(
                 {
-                  email: user.email,
+                  email: body.email,
                 },
                 process.env.JWT_ACCOUNT_ACTIVATION,
                 {
                   expiresIn: 60 * 60 * 24, //expires in a day
                 }
               );
-              userPool.signUp(_user.name, body.password, attributeList, null, function (err, result) {
+              userPool.signUp(body.email, body.password, attributeList, null, function (err, result) {
                 if (err){
                   callback(null, {
                     statusCode: err.statusCode || 400,
@@ -90,34 +147,50 @@ module.exports.register = (event, context, callback) => {
                     body: err.message
                   });     
                 }else{
-                  let mailOptions = {
-                    from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
-                    to: body.email,
-                    subject: "Account Activation Link",
-                    html: `
-                    <h1>Please Click link to activate your account</h1>
-                    <p><a href="http://localhost:4000/dev/users/activate/${token}">ACTIVATE</a></p>
-                    <hr/>
-                    <p>This email contain sensitive info</p>
-                    <p>${process.env.CLIENT_URL}</p>
-                  `,
-                  };
-        
-                  emailService.sendEmail({ mailOptions: mailOptions }, function (
-                    err,
-                    msg
-                  ) {
-                    if (err) {
-                        callback(null, {
-                            statusCode: err.statusCode || 400,
-                            headers: { 'Content-Type': 'text/plain' },
-                            body: err.message
-                        });
-                    } else {
-                        callback(null, {
-                            statusCode: 200,
-                            body: JSON.stringify({token})
-                        });
+                  User.findOneAndUpdate({
+                    _id: _user._id
+                  },{
+                    $set:{
+                      cognito_id: result.userSub
+                    }
+                  })
+                  .exec((err,_user)=>{
+                    if(err){
+                      callback(null, {
+                        statusCode: err.statusCode || 400,
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: err.message
+                      }); 
+                    }else{
+                      let mailOptions = {
+                        from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
+                        to: body.email,
+                        subject: "Account Activation Link",
+                        html: `
+                        <h1>Please Click link to activate your account</h1>
+                        <p><a href="http://localhost:4000/dev/users/activate/${token}">ACTIVATE</a></p>
+                        <hr/>
+                        <p>This email contain sensitive info</p>
+                        <p>${process.env.CLIENT_URL}</p>
+                      `,
+                      };            
+                      emailService.sendEmail({ mailOptions: mailOptions }, function (
+                        err,
+                        msg
+                      ) {
+                        if (err) {
+                            callback(null, {
+                                statusCode: err.statusCode || 400,
+                                headers: { 'Content-Type': 'text/plain' },
+                                body: err.message
+                            });
+                        } else {
+                            callback(null, {
+                                statusCode: 200,
+                                body: JSON.stringify({token})
+                            });
+                        }
+                      });
                     }
                   });
                 }
@@ -137,11 +210,36 @@ module.exports.register = (event, context, callback) => {
 
 module.exports.login = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    Database.connectToDatabase()
-      .then(() => {
-        let body = JSON.parse(event.body);
-        const randomKey = uuidv4();
-        User.findOne({
+    let body = JSON.parse(event.body);
+    let authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
+      Username: body.email,
+      Password: body.password
+    });    
+        let userData = {
+          Username: body.email,
+            Pool: userPool
+          };
+        let cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);    
+        cognitoUser.authenticateUser(authenticationDetails, {
+          onSuccess: function (result) {
+             let accesstoken = result.getAccessToken().getJwtToken();
+             callback(null, {
+                  statusCode: 200,
+                  body: JSON.stringify({token: accesstoken})
+              });
+            },
+            onFailure: (function (err) {
+              callback(null, {
+                statusCode: err.statusCode || 500,
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({error: err.message})
+              });       
+            })
+          })
+          
+    /*Database.connectToDatabase()
+        .then(() => {
+          User.findOne({
             email: body.email
         })
         .exec(function (err, _user) {
@@ -172,7 +270,7 @@ module.exports.login = (event, context, callback) => {
             headers: { 'Content-Type': 'text/plain' },
             body: {error: err.message}
         });
-      })
+      })*/
 }
 
 module.exports.activate = (event, context, callback) => {
@@ -239,7 +337,7 @@ module.exports.create = (event, context, callback) => {
       .then(() => {
         let body = querystring.decode(event.body);
         const randomKey = uuidv4();
-        var newUser = new User({
+        let newUser = new User({
           firstName: body.firstName,
           lastName: body.lastName,
           email: body.email,
@@ -274,35 +372,30 @@ module.exports.update = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     Database.connectToDatabase()
       .then(() => {
-          let body = querystring.decode(event.body);
-        if (
-            body.password && (body.password == "" || body.password.length == 0)
-          ) {
-            delete body.password;
-        }
-        User.findById(event.pathParameters.id)
-        .exec((err, _userFromModel)=>{
+          let body = JSON.parse(event.body);
+          User.findById(event.pathParameters.id)
+          .exec((err, _userFromModel)=>{
             if(err){
-                callback(null, {
-                    statusCode: err.statusCode || 500,
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: err.message
-                });
+              callback(null, {
+                statusCode: err.statusCode || 500,
+                headers: { 'Content-Type': 'text/plain' },
+                body: err.message
+              });
             }else{
-                if (_userFromModel.name !== body.name) {
-                    _userFromModel.history.push({ field: 'name', value: _userFromModel.name })
-                    _userFromModel.name = body.name;
-                }
-                if (_userFromModel.email !== body.email) {
-                    _userFromModel.history.push({ field: 'email', value: _userFromModel.email })
-                    _userFromModel.email = body.email;
-                }
+              if ( body.password && (body.password == "" || body.password.length == 0) ) {
+                  delete body.password;
+              }else if(body.password){
                 if (body.password && _userFromModel.password !== body.password) {
                     _userFromModel.history.push({ field: 'password', value: _userFromModel.password })
-                    _userFromModel.password = body.password;
                 }
-        
-                _userFromModel.save((err,_user)=>{
+                User.findOneAndUpdate({
+                  _id: event.pathParameters.id
+                },{
+                  $set:{
+                    history: _userFromModel.history
+                  }
+                })
+                .exec((err,_user)=>{
                     if(err){
                         callback(null, {
                             statusCode: err.statusCode || 500,
@@ -310,12 +403,80 @@ module.exports.update = (event, context, callback) => {
                             body: err.message
                         });
                     }else{
+                      let userData = {
+                        Username: _userFromModel.email,
+                        Pool: userPool
+                      };                      
+                      let cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);   
+                      cognitoUser.changePassword( body.old_password, body.password, {
+                        onSuccess: function (result) {                                               
+                            callback(null, {
+                                statusCode: 200,
+                                body: JSON.stringify(result)
+                            });
+                          },
+                          onFailure: (function (err) {
+                            callback(null, {
+                              statusCode: err.statusCode || 500,
+                              headers: { 'Content-Type': 'text/plain' },
+                              body: JSON.stringify({error: err.message})
+                            });       
+                          })
+                        })
+                    }
+                  });
+              }else{                
+                if (_userFromModel.name !== body.name) {
+                    _userFromModel.history.push({ field: 'name', value: _userFromModel.name })
+                }
+                if (_userFromModel.email !== body.email) {
+                    _userFromModel.history.push({ field: 'email', value: _userFromModel.email })
+                }        
+                User.findOneAndUpdate({
+                  _id: event.pathParameters.id
+                },{
+                  $set:{
+                    name: body.name,
+                    email: body.email,
+                    history: _userFromModel.history
+                  }
+                })
+                .exec((err,_user)=>{
+                    if(err){
                         callback(null, {
-                            statusCode: 200,
-                            body: JSON.stringify(_user)
+                            statusCode: err.statusCode || 500,
+                            headers: { 'Content-Type': 'text/plain' },
+                            body: err.message
                         });
+                    }else{
+                      let userData = {
+                        Username: _userFromModel.email,
+                        Pool: userPool
+                      };
+                        let cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData); 
+                        let attributeEmail = {
+                          Name: 'email',
+                          Value: body.email,
+                        };
+                        attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(attributeEmail);
+                        let attributeList = [ attributeEmail ];   
+                        cognitoUser.updateAttributes(attributeList, (err, result)=>{
+                          if(err){
+                            callback(null, {
+                              statusCode: err.statusCode || 500,
+                              headers: { 'Content-Type': 'text/plain' },
+                              body: JSON.stringify({error: err.message})
+                            });       
+                          }else{                                             
+                              callback(null, {
+                                  statusCode: 200,
+                                  body: JSON.stringify(result)
+                              });
+                          }
+                        })
                     }
                 });
+              }
             }
         })
       })
