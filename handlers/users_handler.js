@@ -17,6 +17,8 @@ const poolData = {
 const pool_region = process.env.COGNITO_REGION;
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
+var cognitoUser = userPool.getCurrentUser();
+
 module.exports.me = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     Database.connectToDatabase()
@@ -521,29 +523,43 @@ module.exports.get_api_key = (event, context, callback) => {
     const randomKey = uuidv4();
     const apiKey = randomKey.replace(/-/g, "");
     Database.connectToDatabase()
-      .then(() => {
-        User.findByIdAndUpdate(
-            event.pathParameters.id,
-            {
-                $set: {
-                    apiKey
+    .then(() => {
+        tokenMiddleware.validateToken({
+          event: event
+        },(err,data)=>{
+          if(err){
+            callback(null, {
+              statusCode: err.statusCode || 500,
+              headers: { 'Content-Type': 'text/plain' },
+              body: err.message
+            });
+          }else{
+            User.findOneAndUpdate(
+                {
+                  cognito_id: data.username
                 },
-            },
-            (err) => {
-                if (err) {
-                    callback(null, {
-                        statusCode: err.statusCode || 500,
-                        headers: { 'Content-Type': 'text/plain' },
-                        body: err.message
-                    });
-                } else {
-                    callback(null, {
-                        statusCode: 200,
-                        body: JSON.stringify({ apiKey })
-                    })
+                {
+                    $set: {
+                        apiKey
+                    },
+                },
+                (err) => {
+                    if (err) {
+                        callback(null, {
+                            statusCode: err.statusCode || 500,
+                            headers: { 'Content-Type': 'text/plain' },
+                            body: err.message
+                        });
+                    } else {
+                        callback(null, {
+                            statusCode: 200,
+                            body: JSON.stringify({ apiKey })
+                        })
+                    }
                 }
-            }
-        );
+            );
+          }
+        });
       }).catch((err)=>{
         callback(null, {
             statusCode: err.statusCode || 500,
