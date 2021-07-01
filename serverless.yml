@@ -122,6 +122,14 @@ functions:
           path: users/{id}
           method: patch
           cors: true
+  updateUserPassword:
+    handler: handlers/users_handler.change_password
+    timeout: 60
+    events:
+      - http:
+          path: users/password
+          method: post
+          cors: true
   userRegister:
     handler: handlers/users_handler.register
     timeout: 60
@@ -137,14 +145,6 @@ functions:
       - http:
           path: users/login
           method: post
-          cors: true
-  userActivate:
-    handler: handlers/users_handler.activate
-    timeout: 60
-    events:
-      - http:
-          path: users/activate/{token}
-          method: get
           cors: true
 useDotenv: true
 plugins:
