@@ -543,7 +543,7 @@ module.exports.get_usage = (event, context, callback) => {
           event: event
         },(err, _user)=>{        
           if(err){
-            callback(null, error);
+            callback(null, err);
           }else{
             Usage.aggregate([{
                 $match: {
