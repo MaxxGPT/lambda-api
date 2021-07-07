@@ -82,6 +82,14 @@ functions:
           path: users
           method: post
           cors: true
+  changePassword:
+    handler: handlers/users_handler.recover_password
+    timeout: 60
+    events:
+      - http:
+          path: users/recover
+          method: post
+          cors: true
   userMe:
     handler: handlers/users_handler.me
     timeout: 60

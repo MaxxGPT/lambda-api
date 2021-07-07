@@ -61,7 +61,76 @@ module.exports.me = (event, context, callback) => {
         });
     })
   };
+  /* User Recover Password */
+  module.exports.recover_password = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+  
+    Database.connectToDatabase()
+    .then(() => {
+      let body = JSON.parse(event.body);
+      User.findOne({
+        _id: body.email
+      },{
+        $set:{
+          cognito_id: result.userSub
+        }
+      })
+      .exec((err,_user)=>{
+        if(err){
+          callback(null, {
+            statusCode: err.statusCode || 400,
+            headers: { 'Content-Type': 'text/plain' },
+            body: err.message
+          }); 
+        }else{
+          const token = jwt.sign(
+            {
+              email: body.email,
+            },
+            process.env.JWT_ACCOUNT_ACTIVATION,
+            {
+              expiresIn: 60 * 60 * 24, //expires in a day
+            });
+          let mailOptions = {
+            from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
+            to: body.email,
+            subject: "Account Change Password",
+            html: `
+            <h1>Please Click link to activate your account</h1>
+            <p><a href="${process.env.CLIENT_URL}/recover/${token}">CHANGE PASSWORD</a></p>
+            <hr/>
+            <p>This email contain sensitive info</p>
+            <p>${process.env.CLIENT_URL}</p>
+          `,
+          };            
+          emailService.sendEmail({ mailOptions: mailOptions }, function (
+            err,
+            msg
+          ) {
+            if (err) {
+                callback(null, {
+                    statusCode: err.statusCode || 400,
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: err.message
+                });
+            } else {
+                callback(null, {
+                    statusCode: 200,
+                    body: JSON.stringify({msg:'Email has been sent'})
+                });
+            }
+          });
+        }
+      });
 
+    }).catch((err)=>{
+        callback(null, {
+            statusCode: err.statusCode || 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: err.message
+        });
+    })
+}
   /* User Sign in */
 module.exports.register = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
