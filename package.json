@@ -20,18 +20,18 @@
     "aws-sdk": "^2.922.0",
     "bcrypt": "^5.0.1",
     "date-fns": "^2.22.1",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.5",
-    "mongodb": "^3.6.9",
-    "mongoose": "^5.12.13",
+    "mongodb": "^4.4.1",
+    "mongoose": "^6.2.8",
     "nodemailer": "^6.6.1",
     "request": "^2.88.2",
-    "serverless": "^2.45.1",
+    "serverless": "^3.10.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "serverless-middleware": "0.0.14",
-    "serverless-offline": "^7.0.0"
+    "serverless-middleware": "2.0.0",
+    "serverless-offline": "^8.5.0"
   }
 }
