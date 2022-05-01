@@ -1,21 +1,14 @@
-image: atlassian/default-image:2
+image: node:alpine
 
 pipelines:
-  branches: # Pipelines should that will be triggered when a push is made in the below branch
+  branches:
     master:
       - step:
-          name: Deploy to S3
+          name: sls deploy
+          caches:
+            - node
           script:
-            - mkdir artifact
-            - zip -r artifact/archive.zip node_modules/ app.js package.json
-            - pipe: atlassian/aws-s3-deploy:0.5.0
-              variables:
-                AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-                AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-                AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
-                COMMAND: 'upload-only'
-                ZIP_FILE: 'archive.zip'
-                S3_BUCKET: 'asatera-lambda/lambda'
-                LOCAL_PATH: 'artifact'
-                ACL: 'private'
-                
+            - apk add python3
+            - npm install -g serverless
+            - serverless config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY}
+            - serverless deploy
