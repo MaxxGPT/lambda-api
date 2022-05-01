@@ -1,14 +1,13 @@
-image: node
+image: node:alpine
 
 pipelines:
   branches:
     master:
       - step:
-          name: sls deploy
+          caches:
+            - node
           script:
-            - npm install -g serverless-offline
-            - pipe: atlassian/serverless-deploy:1.1.1
-              variables:
-                AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-                AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-          
+            - apk add python3
+            - npm install -g serverless
+            - serverless config credentials --stage dev --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY}
+            - serverless deploy --stage dev
