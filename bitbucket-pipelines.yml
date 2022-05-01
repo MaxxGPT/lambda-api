@@ -6,6 +6,7 @@ pipelines:
       - step:
           name: sls deploy
           script:
+            - npm install -g serverless-offline
             - pipe: atlassian/serverless-deploy:1.1.1
               variables:
                 AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
