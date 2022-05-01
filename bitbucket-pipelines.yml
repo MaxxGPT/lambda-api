@@ -11,5 +11,5 @@ pipelines:
             - npm install --save-dev
             - pipe: atlassian/serverless-deploy:1.1.1
               variables:
-                AWS_ACCESS_KEY_ID: $KEY_DEFINED_ON_BITBUCKET
-                AWS_SECRET_ACCESS_KEY: $KEY_DEFINED_ON_BITBUCKET
+                AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+                AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
