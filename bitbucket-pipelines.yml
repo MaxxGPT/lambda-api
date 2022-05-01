@@ -8,6 +8,7 @@ pipelines:
             - node
           script:
             - npm install -g npm
+            - npm install -g serverless
             - npm install --save-dev
             - pipe: atlassian/serverless-deploy:1.1.1
               variables:
