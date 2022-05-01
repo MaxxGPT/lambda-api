@@ -9,6 +9,7 @@ pipelines:
             - node
           script:
             - npm install
+            - npm install -g serverless
             - pipe: atlassian/serverless-deploy:1.1.1
               variables:
                 AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
