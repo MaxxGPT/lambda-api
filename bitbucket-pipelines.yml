@@ -7,7 +7,8 @@ pipelines:
           caches:
             - node
           script:
-            - apk add python3
+            - npm config set prefix /usr/local
             - npm install -g serverless
+            - npm install serverless-offline -g
             - serverless config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY}
-            - serverless deploy --stage dev
+            - serverless deploy
