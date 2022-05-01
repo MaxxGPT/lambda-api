@@ -10,8 +10,8 @@ pipelines:
           script:
             - npm install
             - pipe: atlassian/serverless-deploy:1.1.1
-            variables:
-              AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-                AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-                AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
-                COMMAND: 'sls deploy'
+              variables:
+                AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+                  AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+                  AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+                  COMMAND: 'sls deploy'
