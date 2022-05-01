@@ -1,14 +1,17 @@
 service: aws-lambda-api-service
 variablesResolutionMode: 20210326
-frameworkVersion: '2'
+# frameworkVersion: '2'
+custom:
+  dotenv:
+    include: []
 provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   stage: dev
   region: us-east-1
-  environment:
-    MONGODB_ATLAS_CLUSTER_URI: ${file(./config.js):fetchMongoUrl}
+  # environment:
+  #   MONGODB_ATLAS_CLUSTER_URI: ${file(./config.js):fetchMongoUrl}
 functions:
   listArticles:
     handler: handlers/articles_handler.list
@@ -158,3 +161,4 @@ useDotenv: true
 plugins:
   - serverless-offline
   - serverless-middleware
+  - serverless-dotenv-plugin

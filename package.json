@@ -17,8 +17,10 @@
   "homepage": "https://bitbucket.org/VueMongo/lambda-api#readme",
   "dependencies": {
     "amazon-cognito-identity-js": "^5.0.3",
+    "aws-cli": "^0.0.2",
     "aws-sdk": "^2.922.0",
     "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "date-fns": "^2.22.1",
     "dotenv": "^16.0.0",
     "jsonwebtoken": "^8.5.1",
@@ -27,11 +29,13 @@
     "mongoose": "^6.2.8",
     "nodemailer": "^6.6.1",
     "request": "^2.88.2",
-    "serverless": "^3.10.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "vim": "^0.1.0"
   },
   "devDependencies": {
+    "serverless": "^3.16.0",
+    "serverless-dotenv-plugin": "^4.0.0",
     "serverless-middleware": "2.0.0",
-    "serverless-offline": "^8.5.0"
+    "serverless-offline": "8.3.1"
   }
 }

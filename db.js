@@ -40,15 +40,15 @@ module.exports.connectToDatabase = () => {
         // potentially expensive process of connecting to MongoDB every time.
         cachedMongoConn = mongoose.connect(atlas_connection_uri, {
           useNewUrlParser: true,
-          useCreateIndex: true,
+          // useCreateIndex: true,
           useUnifiedTopology: true,
-          useFindAndModify: false,
+          // useFindAndModify: false,
           connectTimeoutMS: 60000,
           // Buffering means mongoose will queue up operations if it gets
           // disconnected from MongoDB and send them when it reconnects.
           // With serverless, better to fail fast if not connected.
           bufferCommands: false, // Disable mongoose buffering
-          bufferMaxEntries: 0, // and MongoDB driver buffering
+          // bufferMaxEntries: 0, // and MongoDB driver buffering
         });
       } else {
         console.log('MongoDB: using cached database instance');
