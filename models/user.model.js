@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs")
-, jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs"),
+  jwt = require("jsonwebtoken");
 
 const historySchema = new mongoose.Schema({
-  field: String, value: String, updated_by: {
+  field: String,
+  value: String,
+  updated_by: {
     type: "Date",
     default: Date.now,
-  }
+  },
 });
 
 const userSchema = new mongoose.Schema(
@@ -33,7 +35,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },*/
     cognito_id: {
-      type:'String'
+      type: "String",
     },
     password: {
       type: String,
@@ -58,15 +60,16 @@ const userSchema = new mongoose.Schema(
     },
     subscription: {
       type: String,
-      default: "free"
+      default: "dev",
     },
     token: {
       type: String,
-      default: "free"
+      default: "free",
     },
     apiKey: String,
     status: { type: "Boolean", default: false },
-    history: [historySchema]
+    history: [historySchema],
+    credits_left: { type: Number, default: 0 },
   },
   { collection: "Users" }
 );
@@ -76,14 +79,15 @@ userSchema.methods.generateHash = function (cb) {
   return cb();
 };
 
-userSchema.methods.generateToken = function(){
-  this.token = jwt.sign({
-        email: this.email,        
-        _id: this._id
-      },
-      process.env.JWT_ACCOUNT_ACTIVATION
-    );
-}
+userSchema.methods.generateToken = function () {
+  this.token = jwt.sign(
+    {
+      email: this.email,
+      _id: this._id,
+    },
+    process.env.JWT_ACCOUNT_ACTIVATION
+  );
+};
 
 userSchema.methods.validPassword = function (password, hash) {
   return bcrypt.compareSync(password, hash);

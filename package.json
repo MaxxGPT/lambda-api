@@ -36,6 +36,6 @@
     "serverless": "^3.16.0",
     "serverless-dotenv-plugin": "^4.0.0",
     "serverless-middleware": "2.0.0",
-    "serverless-offline": "8.3.1"
+    "serverless-offline": "^8.8.1"
   }
 }
