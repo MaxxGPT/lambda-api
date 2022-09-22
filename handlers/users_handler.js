@@ -205,7 +205,6 @@ module.exports.register = (event, context, callback) => {
                   {
                     $set: {
                       cognito_id: result.userSub,
-                      credits_left: 100,
                     },
                   }
                 ).exec((err, _user) => {
