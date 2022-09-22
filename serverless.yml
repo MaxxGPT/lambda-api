@@ -10,8 +10,9 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: us-east-1
-  # environment:
-  #   MONGODB_ATLAS_CLUSTER_URI: ${file(./config.js):fetchMongoUrl}
+  environment:
+    MONGODB_ATLAS_CLUSTER_URI: mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI
+
 functions:
   listArticles:
     handler: handlers/articles_handler.list
@@ -45,6 +46,7 @@ functions:
           path: sources/{id}
           method: get
           cors: true
+
   updateSource:
     handler: handlers/sources_handler.update
     timeout: 60
@@ -61,6 +63,7 @@ functions:
           path: sources
           method: post
           cors: true
+
   removeSource:
     handler: handlers/sources_handler.remove
     timeout: 60
