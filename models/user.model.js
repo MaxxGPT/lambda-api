@@ -69,7 +69,10 @@ const userSchema = new mongoose.Schema(
     apiKey: String,
     status: { type: "Boolean", default: false },
     history: [historySchema],
-    credits_left: { type: Number, default: 0 },
+    credits_left: { type: Number, default: 100 },
+    payment_status: { type: "Boolean" },
+    cycle_frequency: { type: String, enum: ["daily", "monthly"] },
+
   },
   { collection: "Users" }
 );

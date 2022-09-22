@@ -205,6 +205,7 @@ module.exports.register = (event, context, callback) => {
                   {
                     $set: {
                       cognito_id: result.userSub,
+                      credits_left: 100,
                     },
                   }
                 ).exec((err, _user) => {
@@ -714,3 +715,97 @@ module.exports.get_usage = (event, context, callback) => {
       });
     });
 };
+
+// /* Update information for payment user */
+// module.exports.update_payment = (event, context, callback) => {
+//   context.callbackWaitsForEmptyEventLoop = false;
+//   Database.connectToDatabase()
+//     .then(() => {
+//       tokenMiddleware.validateToken(
+//         {
+//           event: event,
+//         },
+//         (err, data) => {
+//           if (err) {
+//             callback(null, {
+//               statusCode: 403,
+//               headers: { "Content-Type": "text/plain" },
+//               body: err.message,
+//             });
+//           } else {
+//             let body = JSON.parse(event.body);
+//             //get the plan from user dev || business || enterprice
+//             //TODO: credits left (whats the logic for daily | monthly)
+//             // let cognitoidentityserviceprovider =
+//             //   new AWS.CognitoIdentityServiceProvider();
+//             User.findById(event.body.id).exec((err, _userFromModel) => {
+//               if (err) {
+//                 callback(null, {
+//                   statusCode: err.statusCode || 500,
+//                   headers: { "Content-Type": "text/plain" },
+//                   body: err.message,
+//                 });
+//               } else {
+//                 User.findOneAndUpdate(
+//                   {
+//                     _id: event.id,
+//                   },
+//                   {
+//                     $set: {
+//                       requests_per_cycle:
+//                         plans[body?.subscription].requests_per_cycle,
+//                       cycle_frequency:
+//                         plans[body?.subscription].cycle_frequency,
+//                     },
+//                   }
+//                 ).exec((err, _user) => {
+//                   if (err) {
+//                     callback(null, {
+//                       statusCode: err.statusCode || 500,
+//                       headers: { "Content-Type": "text/plain" },
+//                       body: err.message,
+//                     });
+//                   } else {
+//                     //TODO: should we update cognito
+//                     // cognitoidentityserviceprovider.adminUpdateUserAttributes(
+//                     //   {
+//                     //     UserAttributes: [
+//                     //       {
+//                     //         Name: "email",
+//                     //         Value: body.email,
+//                     //       },
+//                     //     ],
+//                     //     Username: _userFromModel.email,
+//                     //     UserPoolId: process.env.COGNITO_USER_POOL,
+//                     //   },
+//                     //   function (err, data) {
+//                     //     if (err) {
+//                     //       callback(null, {
+//                     //         statusCode: err.statusCode || 500,
+//                     //         headers: { "Content-Type": "text/plain" },
+//                     //         body: err.message,
+//                     //       });
+//                     //     } else {
+//                     //       callback(null, {
+//                     //         statusCode: 200,
+//                     //         body: JSON.stringify({ msg: "Updated" }),
+//                     //       });
+//                     //     }
+//                     //   }
+//                     // );
+//                   }
+//                 });
+//               }
+//             });
+//           }
+//         }
+//       );
+//     })
+//     .catch((err) => {
+//       callback(null, {
+//         statusCode: err.statusCode || 500,
+//         headers: { "Content-Type": "text/plain" },
+//         body: err.message,
+//       });
+//     });
+// };

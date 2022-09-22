@@ -70,7 +70,7 @@ functions:
           method: delete
           cors: true
   listSubscriptions:
-    handler: handlers/subscriptions_handler.list 
+    handler: handlers/subscriptions_handler.list
     timeout: 60
     events:
       - http:
@@ -102,7 +102,7 @@ functions:
           method: get
           cors: true
   getApiKey:
-    handler: handlers/users_handler.get_api_key 
+    handler: handlers/users_handler.get_api_key
     timeout: 60
     events:
       - http:
@@ -110,7 +110,7 @@ functions:
           method: get
           cors: true
   getUsage:
-    handler: handlers/users_handler.get_usage 
+    handler: handlers/users_handler.get_usage
     timeout: 60
     events:
       - http:
@@ -157,6 +157,13 @@ functions:
           path: users/login
           method: post
           cors: true
+
+  updateRequestsPerCycle:
+    handler: handlers/subscriptions_handler.updateRequestsPerCycle
+    timeout: 60
+    events:
+      - schedule: cron(0 0 0 * * ? *)
+
 useDotenv: true
 plugins:
   - serverless-offline

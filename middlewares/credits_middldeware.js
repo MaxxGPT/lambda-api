@@ -14,7 +14,7 @@ module.exports.checkCreditsLeft = (req, callback) => {
             statusCode: 403,
             message: "Api Key invalid",
           });
-        } else if (_user && _user?.credits_left && _user?.credits_left > 0) {
+        } else if (_user && _user.credits_left && _user.credits_left > 0) {
           callback(null, { user_id: _user?.id });
         } else {
           callback({
