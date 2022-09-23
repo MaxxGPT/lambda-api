@@ -165,11 +165,7 @@ functions:
     handler: handlers/subscriptions_handler.updateRequestsPerCycle
     timeout: 60
     events:
-      - http:
-          path: schedular
-          method: post
-          cors: true
-        # - schedule: cron(0 0 * * ? *)
+      - schedule: cron(0 0 * * ? *)
 
 useDotenv: true
 plugins:
