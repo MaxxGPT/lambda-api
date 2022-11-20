@@ -9,7 +9,7 @@ provider:
   name: aws
   runtime: nodejs14.x
   #lambdaHashingVersion: 20201221
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'prod'}
   region: us-east-1
   environment: 
     MONGODB_ATLAS_CLUSTER_URI: ${env:MONGODB_ATLAS_CLUSTER_URI}
