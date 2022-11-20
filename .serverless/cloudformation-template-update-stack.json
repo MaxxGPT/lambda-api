@@ -278,7 +278,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -308,7 +308,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -338,7 +338,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -368,7 +368,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -398,7 +398,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -428,7 +428,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -458,7 +458,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -488,7 +488,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -518,7 +518,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -548,7 +548,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -578,7 +578,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -608,7 +608,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -638,7 +638,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}" 
           }
         },
         "Role": {
@@ -668,7 +668,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -698,7 +698,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -728,7 +728,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -758,7 +758,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -788,7 +788,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
@@ -818,7 +818,7 @@
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Dev-API-User:y9D3u7GwnfPXIKY7@mongodb-dev.ns6ky.mongodb.net/NewsAPI"
+            "MONGODB_ATLAS_CLUSTER_URI": "${env:MONGODB_ATLAS_CLUSTER_URI}"
           }
         },
         "Role": {
