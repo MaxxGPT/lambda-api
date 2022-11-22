@@ -13,6 +13,9 @@ provider:
   region: us-east-1
   environment: 
     MONGODB_ATLAS_CLUSTER_URI: ${env:MONGODB_ATLAS_CLUSTER_URI}
+    UserPoolId: ${env:COGNITO_USER_POOL}
+    ClientId: ${env:COGNITO_USER_CLIENT}
+    
 
 functions:
   listArticles:
