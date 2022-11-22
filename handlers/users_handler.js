@@ -7,7 +7,7 @@ const Database = require("../db"),
   emailService = require("../services/mail.service"),
   tokenMiddleware = require("../middlewares/token_middleware"),
   subWeeks = require("date-fns/subWeeks"),
-  querystring = require("querystring"),
+  //querystring = require("querystring"),
   AWS = require("aws-sdk"),
   AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 
@@ -298,7 +298,7 @@ module.exports.create = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
-      let body = querystring.decode(event.body);
+      let body = URLSearchParams.decode(event.body);
       const randomKey = uuidv4();
       let newUser = new User({
         firstName: body.firstName,
