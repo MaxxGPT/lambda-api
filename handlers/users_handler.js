@@ -1,4 +1,6 @@
 "use strict";
+const dotenv = require('dotenv');
+dotenv.config();
 const Database = require("../db"),
   User = require("../models/user.model"),
   Usage = require("../models/usage.model"),
