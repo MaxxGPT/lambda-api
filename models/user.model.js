@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs"),
+const bcrypt = require("bcryptjs");
+const validator = require("validator")
   jwt = require("jsonwebtoken");
 
 const historySchema = new mongoose.Schema({
@@ -18,7 +19,11 @@ const userSchema = new mongoose.Schema(
       trim: true,
       required: true,
       unique: true,
-      lowercase: true,
+      validate(value){
+        if(!validator.isEmail(value)){
+          throw new Error ("Please enter correct email");
+        }
+      }
     },
     name: {
       type: String,

@@ -31,6 +31,7 @@
     "request": "^2.88.2",
     "urlsearchparams": "^0.1.1",
     "uuid": "^8.3.2",
+    "validator": "^13.7.0",
     "vim": "^0.1.0"
   },
   "devDependencies": {

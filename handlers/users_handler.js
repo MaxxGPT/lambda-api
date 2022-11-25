@@ -1,4 +1,5 @@
 "use strict";
+const { Console } = require('console');
 const dotenv = require('dotenv');
 dotenv.config();
 const Database = require("../db"),
@@ -9,7 +10,7 @@ const Database = require("../db"),
   emailService = require("../services/mail.service"),
   tokenMiddleware = require("../middlewares/token_middleware"),
   subWeeks = require("date-fns/subWeeks"),
-  querystring = require("querystring"),
+  querystring = require("node:querystring"),
   AWS = require("aws-sdk"),
   AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 
@@ -300,9 +301,8 @@ module.exports.create = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
-      //let body = URLSearchParams(event.body);
       let body = querystring.decode(event.body);
-      console.log("output: ", body)
+      console.log(event.body)
       const randomKey = uuidv4();
       let newUser = new User({
         //firstName: body.firstName,
@@ -312,6 +312,7 @@ module.exports.create = (event, context, callback) => {
         password: body.password,
         apiKey: randomKey.replace(/-/g, ""),
       });
+    //console.log("TESTING")  
       newUser.save(function (err, user) {
         if (err) {
           callback(null, {
