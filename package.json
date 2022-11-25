@@ -29,6 +29,7 @@
     "mongoose": "^6.2.8",
     "nodemailer": "^6.6.1",
     "request": "^2.88.2",
+    "urlsearchparams": "^0.1.1",
     "uuid": "^8.3.2",
     "vim": "^0.1.0"
   },
