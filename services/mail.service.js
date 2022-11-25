@@ -23,6 +23,6 @@ exports.sendEmail = (req, cb) => {
     if (error) {
       return cb(error);
     }
-    return cb(null, "Menssage sent");
+    return cb(null, "Message sent");
   });
 };

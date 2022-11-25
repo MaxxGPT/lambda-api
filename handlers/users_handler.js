@@ -102,7 +102,7 @@ module.exports.recover_password = (event, context, callback) => {
             }
           );
           let mailOptions = {
-            from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
+            from: "'Cannabis News API' <" + process.env.EMAIL_FROM + ">",
             to: body.email,
             subject: "Account Change Password",
             html: `
@@ -219,7 +219,7 @@ module.exports.register = (event, context, callback) => {
                     });
                   } else {
                     let mailOptions = {
-                      from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
+                      from: "'Cannabis News API' <" + process.env.EMAIL_FROM + ">",
                       to: body.email,
                       subject: "Account Activation Link",
                       html: `
