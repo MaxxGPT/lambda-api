@@ -300,11 +300,14 @@ module.exports.create = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
+      //let body = URLSearchParams(event.body);
       let body = querystring.decode(event.body);
+      console.log("output: ", body)
       const randomKey = uuidv4();
       let newUser = new User({
-        firstName: body.firstName,
-        lastName: body.lastName,
+        //firstName: body.firstName,
+        name: body.name,
+        //lastName: body.lastName,
         email: body.email,
         password: body.password,
         apiKey: randomKey.replace(/-/g, ""),
