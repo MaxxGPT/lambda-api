@@ -96,7 +96,10 @@ module.exports.list = (event, context, callback) => {
               }
               /* Setting search by text */
               if (params.q) {
-                queryParams["$text"] = { $search: params.q.replace(/,/g, " ") };
+                //queryParams["$text"] = { $search: params.q.replace(/,/g, " ") };
+              }
+              if (params.source_id){
+                queryParams["source_id" = params.source_id];
               }
               /* Setting both dates from & to */
               if (params.from || params.to) {
