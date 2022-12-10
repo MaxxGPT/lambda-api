@@ -99,7 +99,7 @@ module.exports.list = (event, context, callback) => {
                 //queryParams["$text"] = { $search: params.q.replace(/,/g, " ") };
               }
               if (params.source_id){
-                queryParams["source_id" = params.source_id];
+                queryParams["source_id"] = params.source_id;
               }
               /* Setting both dates from & to */
               if (params.from || params.to) {
@@ -126,7 +126,7 @@ module.exports.list = (event, context, callback) => {
               } else {
                 let currentDate = new Date();
                 let sixMonthRange = currentDate.setMonth(
-                  currentDate.getMonth() - 1
+                  currentDate.getMonth() - 6
                 );
                 //console.log(sixMonthRange, new Date(sixMonthRange).toISOString());
                 queryParams["publishedAt"] = {
