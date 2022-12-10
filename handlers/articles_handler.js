@@ -123,7 +123,7 @@ module.exports.list = (event, context, callback) => {
               } else {
                 let currentDate = new Date();
                 let sixMonthRange = currentDate.setMonth(
-                  currentDate.getMonth() - 6
+                  currentDate.getMonth() - 1
                 );
                 //console.log(sixMonthRange, new Date(sixMonthRange).toISOString());
                 queryParams["publishedAt"] = {
