@@ -45,6 +45,9 @@ module.exports.list = (event, context, callback) => {
               if (params.state) {
                 queryParams["state"] = params.state;
               }
+              if (params._id) {
+                queryParams["_id"] = params._id;
+              }
 
               getSources(
                 {

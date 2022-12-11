@@ -101,6 +101,12 @@ module.exports.list = (event, context, callback) => {
               if (params.source_id){
                 queryParams["source_id"] = params.source_id;
               }
+              if (params.sentiment){
+                queryParams["sentiment"] = params.sentiment;
+              }
+              if (params.Topic){
+                queryParams["Topic"] = params.Topic;
+              }
               /* Setting both dates from & to */
               if (params.from || params.to) {
                 /* Setting date search from */
