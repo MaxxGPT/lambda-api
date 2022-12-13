@@ -11,6 +11,12 @@ provider:
   #lambdaHashingVersion: 20201221
   stage: ${opt:stage, 'prod'}
   region: us-east-1
+  vpc:
+    securityGroupIds: 
+      - sg-04724e3bcfdfb4efa
+    subnetIds:
+      - subnet-0f39abb3b3e5d8e7e
+      
   environment: 
     MONGODB_ATLAS_CLUSTER_URI: ${env:MONGODB_ATLAS_CLUSTER_URI}
     UserPoolId: ${env:COGNITO_USER_POOL}
