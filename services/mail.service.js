@@ -1,5 +1,5 @@
 // const nodemailer = require("nodemailer");
-const path = require("path");
+
 import * as nodemailer from "nodemailer";
 let transporter = nodemailer.createTransport({
   host: process.env.EMAIL_SERVER,

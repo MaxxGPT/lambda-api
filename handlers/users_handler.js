@@ -10,15 +10,16 @@
   // querystring = require("querystring"),
   // AWS = require("aws-sdk"),
   // AmazonCognitoIdentity = require("amazon-cognito-identity-js");
-import * as Database from '../db'
-import { User } from '../models/user.model'
-import { Usage } from '../models/usage.model'
-import * as emailService from '../services/mail.service'
-import * as tokenMiddleware from '../middlewares/token_middleware'
+import * as Database from '../db.js'
+console.log(Database)
+import { User } from '../models/user.model.js'
+import { Usage } from '../models/usage.model.js'
+import * as emailService from '../services/mail.service.js'
+import * as tokenMiddleware from '../middlewares/token_middleware.js'
 import { v4 as uuidv4 } from "uuid";
 import * as jwt from "jsonwebtoken";
 import * as querystring from "querystring";
-import * as AWS from "aws-sdk";
+import AWS from "aws-sdk";
 import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
 import {subWeeks} from "date-fns";
 

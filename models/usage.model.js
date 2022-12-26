@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose')
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 var usageSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,

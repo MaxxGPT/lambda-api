@@ -1,13 +1,13 @@
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 import * as bcrypt from "bcrypt";
-import * as validator from "validator";
+import validator from "validator";
 import * as jwt from "jsonwebtoken";
 // const mongoose = require("mongoose");
 // const bcrypt = require("bcryptjs");
 // const validator = require("validator")
 //   jwt = require("jsonwebtoken");
-
-const historySchema = new mongoose.Schema({
+const { Schema } = mongoose;
+const historySchema = new Schema({
   field: String,
   value: String,
   updated_by: {
@@ -16,7 +16,7 @@ const historySchema = new mongoose.Schema({
   },
 });
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     email: {
       type: String,
