@@ -20,7 +20,6 @@ import * as jwt from "jsonwebtoken";
 import * as querystring from "querystring";
 import * as AWS from "aws-sdk";
 import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
-
 import {subWeeks} from "date-fns";
 
 const poolData = {
