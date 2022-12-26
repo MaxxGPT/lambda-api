@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import * as bcrypt from "bcrypt";
+import bcrypt from "bcrypt";
 import validator from "validator";
 import * as jwt from "jsonwebtoken";
 // const mongoose = require("mongoose");
