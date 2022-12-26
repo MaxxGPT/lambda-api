@@ -1,6 +1,6 @@
 // const mongoose = require("mongoose");
 import mongoose from "mongoose";
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 // const AWS = require("aws-sdk");
 import AWS from "aws-sdk";
 AWS.config.update({ region: "us-east-1" });
@@ -10,7 +10,7 @@ let cachedMongoConn = null;
 
 export const connectToDatabase = () => {
   return new Promise((resolve, reject) => {
-    mongoose.Promise = global.Promise;
+    // mongoose.Promise = global.Promise;
     mongoose.connection
       // Reject if an error occurred when trying to connect to MongoDB
       .on("error", (error) => {
