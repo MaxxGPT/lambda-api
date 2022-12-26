@@ -1,11 +1,7 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import validator from "validator";
 import * as jwt from "jsonwebtoken";
-// const mongoose = require("mongoose");
-// const bcrypt = require("bcryptjs");
-// const validator = require("validator")
-//   jwt = require("jsonwebtoken");
 const { Schema } = mongoose;
 const historySchema = new Schema({
   field: String,

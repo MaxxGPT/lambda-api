@@ -11,7 +11,6 @@
   // AWS = require("aws-sdk"),
   // AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 import * as Database from '../db.js'
-console.log(Database)
 import { User } from '../models/user.model.js'
 import { Usage } from '../models/usage.model.js'
 import * as emailService from '../services/mail.service.js'
