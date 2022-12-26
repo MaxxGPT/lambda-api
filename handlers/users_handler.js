@@ -18,6 +18,7 @@ const poolData = {
   UserPoolId: process.env.COGNITO_USER_POOL,
   ClientId: process.env.COGNITO_USER_CLIENT,
 };
+
 const pool_region = process.env.COGNITO_REGION;
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 

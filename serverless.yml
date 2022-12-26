@@ -158,6 +158,10 @@ functions:
     handler: handlers/users_handler.register
     timeout: 60
     events:
+      - Aws.cognitoUserPool:
+        pool: ${env:COGNITO_USER_POOL_NAME}
+        trigger: PreSignUp
+        existing: true
       - http:
           path: users/signin
           method: post
