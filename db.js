@@ -1,12 +1,14 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import * as mongoose from "mongoose";
 mongoose.Promise = global.Promise;
-const AWS = require("aws-sdk");
+// const AWS = require("aws-sdk");
+import * as AWS from "aws-sdk";
 AWS.config.update({ region: "us-east-1" });
 
 let atlas_connection_uri = process.env.MONGODB_ATLAS_CLUSTER_URI;
 let cachedMongoConn = null;
 
-module.exports.connectToDatabase = () => {
+export const connectToDatabase = () => {
   return new Promise((resolve, reject) => {
     mongoose.Promise = global.Promise;
     mongoose.connection

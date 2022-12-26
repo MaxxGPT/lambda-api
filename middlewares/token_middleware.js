@@ -1,7 +1,11 @@
-const jwt = require("jsonwebtoken"),
-  request = require("request"),
-  jwkToPem = require("jwk-to-pem"),
-  AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+// const jwt = require("jsonwebtoken"),
+//   request = require("request"),
+//   jwkToPem = require("jwk-to-pem"),
+//   AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
+import * as jwkToPem from "jwk-to-pem";
+import * as request from "request";
+import * as jwt from "jsonwebtoken";
 
 const poolData = {
   UserPoolId: process.env.COGNITO_USER_POOL,
@@ -10,7 +14,7 @@ const poolData = {
 const pool_region = process.env.COGNITO_REGION;
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
-module.exports.validateToken = (req, callback) => {
+export const validateToken = (req, callback) => {
   new Promise(function (resolve, reject) {
     let token = req.event.headers["Authorization"];
     if (token && token.startsWith("Bearer ")) {

@@ -1,6 +1,6 @@
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 const path = require("path");
-
+import * as nodemailer from "nodemailer";
 let transporter = nodemailer.createTransport({
   host: process.env.EMAIL_SERVER,
   port: process.env.EMAIL_PORT,
@@ -10,7 +10,7 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-exports.sendEmail = (req, cb) => {
+export const sendEmail = (req, cb) => {
   //console.log(route, req.mailOptions);
   let extra_attachments = [];
   if (req.mailOptions.attachments && req.mailOptions.attachments.length > 0) {

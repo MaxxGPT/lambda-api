@@ -1,18 +1,27 @@
 "use strict";
-const { Console } = require('console');
-const dotenv = require('dotenv');
-dotenv.config();
-const Database = require("../db"),
-  User = require("../models/user.model"),
-  Usage = require("../models/usage.model"),
-  jwt = require("jsonwebtoken"),
-  { v4: uuidv4 } = require("uuid"),
-  emailService = require("../services/mail.service"),
-  tokenMiddleware = require("../middlewares/token_middleware"),
-  subWeeks = require("date-fns/subWeeks"),
-  querystring = require("node:querystring"),
-  AWS = require("aws-sdk"),
-  AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+// const Database = require("../db"),
+  // User = require("../models/user.model"),
+  // Usage = require("../models/usage.model"),
+  // jwt = require("jsonwebtoken"),
+  // { v4: uuidv4 } = require("uuid"),
+  // emailService = require("../services/mail.service"),
+  // tokenMiddleware = require("../middlewares/token_middleware")
+  // subWeeks = require("date-fns/subWeeks"),
+  // querystring = require("querystring"),
+  // AWS = require("aws-sdk"),
+  // AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+import * as Database from '../db'
+import { User } from '../models/user.model'
+import { Usage } from '../models/usage.model'
+import * as emailService from '../services/mail.service'
+import * as tokenMiddleware from '../middlewares/token_middleware'
+import { v4 as uuidv4 } from "uuid";
+import * as jwt from "jsonwebtoken";
+import * as querystring from "querystring";
+import * as AWS from "aws-sdk";
+import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
+
+import {subWeeks} from "date-fns";
 
 const poolData = {
   UserPoolId: process.env.COGNITO_USER_POOL,
@@ -102,7 +111,7 @@ module.exports.recover_password = (event, context, callback) => {
             }
           );
           let mailOptions = {
-            from: "'Cannabis News API' <" + process.env.EMAIL_FROM + ">",
+            from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
             to: body.email,
             subject: "Account Change Password",
             html: `
@@ -219,7 +228,7 @@ module.exports.register = (event, context, callback) => {
                     });
                   } else {
                     let mailOptions = {
-                      from: "'Cannabis News API' <" + process.env.EMAIL_FROM + ">",
+                      from: "'Asatera' <" + process.env.EMAIL_FROM + ">",
                       to: body.email,
                       subject: "Account Activation Link",
                       html: `
@@ -266,7 +275,9 @@ module.exports.register = (event, context, callback) => {
 };
 
 /* User Login */
-module.exports.login = (event, context, callback) => {
+export const login = (event, context, callback) => {
+  console.log("Login event!!")
+  console.log(JSON.stringify(event, null, 2))
   context.callbackWaitsForEmptyEventLoop = false;
   let body = JSON.parse(event.body);
   let authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
@@ -302,17 +313,14 @@ module.exports.create = (event, context, callback) => {
   Database.connectToDatabase()
     .then(() => {
       let body = querystring.decode(event.body);
-      console.log(event.body)
       const randomKey = uuidv4();
       let newUser = new User({
-        //firstName: body.firstName,
-        name: body.name,
-        //lastName: body.lastName,
+        firstName: body.firstName,
+        lastName: body.lastName,
         email: body.email,
         password: body.password,
         apiKey: randomKey.replace(/-/g, ""),
       });
-    //console.log("TESTING")  
       newUser.save(function (err, user) {
         if (err) {
           callback(null, {

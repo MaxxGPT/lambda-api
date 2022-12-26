@@ -1,7 +1,11 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const validator = require("validator")
-  jwt = require("jsonwebtoken");
+import * as mongoose from "mongoose";
+import * as bcrypt from "bcrypt";
+import * as validator from "validator";
+import * as jwt from "jsonwebtoken";
+// const mongoose = require("mongoose");
+// const bcrypt = require("bcryptjs");
+// const validator = require("validator")
+//   jwt = require("jsonwebtoken");
 
 const historySchema = new mongoose.Schema({
   field: String,
@@ -110,4 +114,5 @@ userSchema.pre("save", function (next) {
   this.generateHash(next);
 });
 
-module.exports = mongoose.model("Users", userSchema);
+// module.exports = mongoose.model("Users", userSchema);
+export const User = mongoose.model("Users", userSchema);
