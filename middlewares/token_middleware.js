@@ -1,11 +1,15 @@
-const jwt = require("jsonwebtoken"),
-  request = require("request"),
-  jwkToPem = require("jwk-to-pem"),
-  AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+// const jwt = require("jsonwebtoken"),
+//   request = require("request"),
+//   jwkToPem = require("jwk-to-pem"),
+//   AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
+import * as jwkToPem from "jwk-to-pem";
+import * as request from "request";
+import * as jwt from "jsonwebtoken";
 
 const poolData = {
-  UserPoolId: process.env.COGNITO_USER_POOL,
-  ClientId: process.env.COGNITO_USER_CLIENT,
+  UserPoolId: "us-east-1_I3DKecNsh",
+  ClientId: "3bkhbfcs6u467f4q9ln4mcob40",
 };
 const pool_region = process.env.COGNITO_REGION;
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
