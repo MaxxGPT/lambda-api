@@ -1,5 +1,6 @@
 {
   "app": "node bin/app.js",
+  "profile": "MasterIn-Prod-Admin",
   "watch": {
     "include": [
       "**"
