@@ -1,6 +1,7 @@
-const User = require('../models/user.model');
+//const User = require('../models/user.model');
+import { User } from '../models/user.model.js'
 
-module.exports.validate = (req, callback) => {
+export function validate (req, callback) {
     new Promise(function(resolve, reject) {
       User.findOne(
           {

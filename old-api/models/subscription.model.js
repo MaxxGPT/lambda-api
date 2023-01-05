@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 var subscriptionSchema = new mongoose.Schema(
   {
@@ -11,4 +12,5 @@ var subscriptionSchema = new mongoose.Schema(
   { collection: "Subscriptions" }
 );
 
-module.exports = mongoose.model("Subscriptions", subscriptionSchema);
+//module.exports = mongoose.model("Subscriptions", subscriptionSchema);
+export const Subscription = mongoose.model("Subscriptions", userSchema);

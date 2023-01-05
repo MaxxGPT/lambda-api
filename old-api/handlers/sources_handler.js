@@ -6,7 +6,7 @@ const Database = require("../db"),
   ApiMiddleware = require("../middlewares/api_key_middleware"),
   CreditsMiddleware = require("../middlewares/credits_middldeware");
 
-module.exports.list = (event, context, callback) => {
+export function list (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -115,7 +115,7 @@ function getSources(req, cb) {
   );
 }
 
-module.exports.show = (event, context, callback) => {
+export function show (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
 
   Database.connectToDatabase().then(() => {
@@ -167,7 +167,7 @@ module.exports.show = (event, context, callback) => {
   });
 };
 
-module.exports.create = (event, context, callback) => {
+export function create (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -196,7 +196,7 @@ module.exports.create = (event, context, callback) => {
     });
 };
 
-module.exports.update = (event, context, callback) => {
+export function update (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -232,7 +232,7 @@ module.exports.update = (event, context, callback) => {
     });
 };
 
-module.exports.remove = (event, context, callback) => {
+export function remove (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {

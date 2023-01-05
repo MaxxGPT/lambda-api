@@ -1,4 +1,6 @@
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
+import mongoose from "mongoose";
+
 
 var sourceSchema = new mongoose.Schema({
 	_id: String,
@@ -11,4 +13,5 @@ var sourceSchema = new mongoose.Schema({
     state: String
 }, { collection: 'Source'});
 
-module.exports = mongoose.model('Source', sourceSchema);
+//module.exports = mongoose.model('Source', sourceSchema);
+export const Source = mongoose.model("Source", sourceSchema);

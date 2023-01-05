@@ -30,7 +30,7 @@ const pool_region = process.env.COGNITO_REGION;
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
 /*Get Information for the authenticated user*/
-module.exports.me = (event, context, callback) => {
+export function me (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -77,7 +77,7 @@ module.exports.me = (event, context, callback) => {
     });
 };
 /* User Recover Password */
-module.exports.recover_password = (event, context, callback) => {
+export function recover_password (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
 
   Database.connectToDatabase()
@@ -150,7 +150,7 @@ module.exports.recover_password = (event, context, callback) => {
     });
 };
 /* User Sign in */
-module.exports.register = (event, context, callback) => {
+export function register (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
 
   Database.connectToDatabase()
@@ -307,7 +307,7 @@ export const login = (event, context, callback) => {
 };
 
 /* Create User (Admin) */
-module.exports.create = (event, context, callback) => {
+export function create (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -345,7 +345,7 @@ module.exports.create = (event, context, callback) => {
 };
 
 /* Change authenticated user's password */
-module.exports.change_password = (event, context, callback) => {
+export function change_password (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -440,7 +440,7 @@ module.exports.change_password = (event, context, callback) => {
 };
 
 /* Update information for authenticated user */
-module.exports.update = (event, context, callback) => {
+export function update (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -544,7 +544,7 @@ module.exports.update = (event, context, callback) => {
 };
 
 /* Self-remove for authenticated user */
-module.exports.remove = (event, context, callback) => {
+export function remove (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -618,7 +618,7 @@ module.exports.remove = (event, context, callback) => {
 };
 
 /* Regenerate API Key */
-module.exports.get_api_key = (event, context, callback) => {
+export function get_api_key (event, context, callback) {
   const randomKey = uuidv4();
   const apiKey = randomKey.replace(/-/g, "");
   Database.connectToDatabase()
@@ -673,7 +673,7 @@ module.exports.get_api_key = (event, context, callback) => {
 };
 
 /* Get usage list from authenticated user */
-module.exports.get_usage = (event, context, callback) => {
+export function get_usage (event, context, callback) {
   Database.connectToDatabase()
     .then(() => {
       tokenMiddleware.validateToken(

@@ -4,7 +4,7 @@ const Database = require("../db"),
   Users = require("../models/user.model"),
   subscriptionService = require("../services/subscription.service");
 
-module.exports.list = (event, context, callback) => {
+export function list (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {
@@ -33,7 +33,7 @@ module.exports.list = (event, context, callback) => {
     });
 };
 
-module.exports.updateRequestsPerCycle = (event, context, callback) => {
+export function updateRequestsPerCycle (event, context, callback)  {
   context.callbackWaitsForEmptyEventLoop = false;
   Database.connectToDatabase()
     .then(() => {

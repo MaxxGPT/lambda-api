@@ -1,5 +1,7 @@
-const { Double } = require('bson');
-const mongoose = require('mongoose')
+//const { Double } = require('bson');
+//const BSON = require('bson');
+//const mongoose = require('mongoose')
+import mongoose from "mongoose";
 
 var articlesSchema = new mongoose.Schema({
     author: String,
@@ -25,4 +27,5 @@ var articlesSchema = new mongoose.Schema({
 const index = { title: 'text', content: 'text' };
 articlesSchema.index(index);
 
-module.exports = mongoose.model('Articles', articlesSchema);
+//module.exports = mongoose.model('Articles', articlesSchema);
+export const Article = mongoose.model("Articles", articlesSchema);

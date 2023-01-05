@@ -1,11 +1,25 @@
 "use strict";
-const Database = require("../db"),
-  Article = require("../models/article.model"),
-  Source = require("../models/source.model"),
-  Usage = require("../models/usage.model"),
-  ApiMiddleware = require("../middlewares/api_key_middleware"),
-  CreditsMiddleware = require("../middlewares/credits_middldeware");
-module.exports.show = (event, context, callback) => {
+//const Database = require("../db"),
+  //Article = require("../models/article.model"),
+  //Source = require("../models/source.model"),
+  //Usage = require("../models/usage.model"),
+  //ApiMiddleware = require("../middlewares/api_key_middleware"),
+  //CreditsMiddleware = require("../middlewares/credits_middldeware");
+
+import * as Database from '../db.js' 
+import { Article } from '../models/article.model.js'
+import { Source } from '../models/source.model.js'
+import { Usage } from '../models/usage.model.js'
+import * as ApiMiddleware from '../middlewares/api_key_middleware.js'
+import * as CreditsMiddleware from '../middlewares/credits_middldeware.js'
+
+
+
+
+
+
+
+export function show (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   let params = event.queryStringParameters ? event.queryStringParameters : {};
   Database.connectToDatabase()
@@ -64,7 +78,7 @@ module.exports.show = (event, context, callback) => {
     });
 };
 
-module.exports.list = (event, context, callback) => {
+export function list (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   let queryParams = {};
   let sortBy = {};

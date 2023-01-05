@@ -9,7 +9,7 @@ const encrypted = process.env["MONGODB_ATLAS_CLUSTER_URI"];
 let atlas_connection_uri;
 let cachedDb = null;
 
-exports.handler = (event, context, callback) => {
+export function handler (event, context, callback) {
   if (!atlas_connection_uri) {
     // Decrypt code should run once and variables stored outside of the
     // function handler so that these are atlas_connection_uri once per container

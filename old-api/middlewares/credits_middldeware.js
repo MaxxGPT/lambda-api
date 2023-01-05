@@ -1,6 +1,7 @@
-const User = require("../models/user.model");
+//const User = require("../models/user.model");
+import { User } from '../models/user.model.js'
 
-module.exports.checkCreditsLeft = (req, callback) => {
+export function checkCreditsLeft (req, callback) {
   new Promise(function (resolve, reject) {
     User.findOne(
       {
@@ -26,7 +27,7 @@ module.exports.checkCreditsLeft = (req, callback) => {
     );
   });
 };
-module.exports.updateCreditsLeft = (req, callback) => {
+export function updateCreditsLeft (req, callback) {
   new Promise(function (resolve, reject) {
     User.findByIdAndUpdate(req?.user_id, { $inc: { credits_left: -1 } }).exec(
       (err, _user) => {
