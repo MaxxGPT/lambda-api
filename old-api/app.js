@@ -1,4 +1,5 @@
 "use strict";
+const dotenv = require("dotenv").config();
 
 var MongoClient = require("mongodb").MongoClient;
 const AWS = require("aws-sdk");
@@ -6,7 +7,7 @@ AWS.config.update({ region: "us-east-1" });
 
 const functionName = process.env.AWS_LAMBDA_FUNCTION_NAME;
 const encrypted = process.env["MONGODB_ATLAS_CLUSTER_URI"];
-let atlas_connection_uri;
+let atlas_connection_uri = process.env.MONGODB_ATLAS_CLUSTER_URI;
 let cachedDb = null;
 
 export function handler (event, context, callback) {

@@ -1,16 +1,25 @@
+//const mongoose = require('mongoose')
+//import mongoose, { connection } from "mongoose";
 import mongoose from "mongoose";
+//import mongoose = require ("mongoose")
+//import { connection } from "mongoose";
+import dotenv from "dotenv";
 mongoose.Promise = global.Promise;
 mongoose.set("strictQuery", false);
-import AWS from "aws-sdk";
-AWS.config.update({ region: "us-east-1" });
+//import AWS from "aws-sdk";
+//AWS.config.update({ region: "us-east-1" });
+
+dotenv.config()
+
 
 let atlas_connection_uri = process.env.MONGODB_ATLAS_CLUSTER_URI;
 let cachedMongoConn = null;
 
 export const connectToDatabase = () => {
   return new Promise((resolve, reject) => {
-    // mongoose.Promise = global.Promise;
+    //mongoose.Promise = global.Promise;
     mongoose.connection
+    console.log(mongoose.connect).on()
       .on("error", (error) => {
         console.log("Error: connection to DB failed");
         reject(error);

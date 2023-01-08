@@ -4,6 +4,7 @@
   "description": "",
   "main": "handler.js",
   "type": "module",
+ 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "invoke": "sls invoke local -f listArticles"
@@ -19,7 +20,7 @@
   "dependencies": {
     "amazon-cognito-identity-js": "^6.1.2",
     "aws-cli": "^0.0.2",
-    "aws-sdk": "^2.1286.0",
+    "aws-sdk": "^2.1290.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "date-fns": "^2.29.3",
@@ -27,7 +28,7 @@
     "jsonwebtoken": "^9.0.0",
     "jwk-to-pem": "^2.0.5",
     "mongodb": "^4.13.0",
-    "mongoose": "^6.8.2",
+    "mongoose": "^6.8.3",
     "nodemailer": "^6.8.0",
     "request": "^2.88.2",
     "urlsearchparams": "^0.1.1",
