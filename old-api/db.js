@@ -19,7 +19,7 @@ export const connectToDatabase = () => {
   return new Promise((resolve, reject) => {
     //mongoose.Promise = global.Promise;
     mongoose.connection
-    console.log(mongoose.connect).on()
+    //console.log(mongoose.connect).on()
       .on("error", (error) => {
         console.log("Error: connection to DB failed");
         reject(error);
