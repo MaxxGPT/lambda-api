@@ -1,15 +1,18 @@
 service: aws-lambda-api-service
 #variablesResolutionMode: 20210326
 frameworkVersion: '3'
-custom:
-  dotenv:
-    include: []
+#custom:
+  #serverless-offline:
+    #httpPort: 3000
+  #mongodb: ${ssm:MONGODB_ATLAS_CLUSTER_URI}
+  #dotenv:
+    #include: []
 
 provider:
   name: aws
   runtime: nodejs14.x
   #lambdaHashingVersion: 20201221
-  stage: ${opt:stage, 'prod'}
+  stage: ${opt:stage, 'dev'}
   region: us-east-1
   vpc:
     securityGroupIds: 
@@ -18,7 +21,7 @@ provider:
       - subnet-0f39abb3b3e5d8e7e
       
   environment: 
-    MONGODB_ATLAS_CLUSTER_URI: ${MONGODB_ATLAS_CLUSTER_URI}
+    MONGODB_ATLAS_CLUSTER_URI: '{{ssm:MONGODB_ATLAS_CLUSTER_URI}}' #${ssm:MONGODB_ATLAS_CLUSTER_URI} #${self:custom.mongodb.MONGODB_ATLAS_CLUSTER_URI}           
     UserPoolId: ${COGNITO_USER_POOL}
     ClientId: ${COGNITO_USER_CLIENT}
     

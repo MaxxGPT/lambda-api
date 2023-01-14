@@ -1,10 +1,14 @@
 "use strict";
 
-const Database = require("../db"),
-  Source = require("../models/source.model"),
-  querystring = require("querystring"),
-  ApiMiddleware = require("../middlewares/api_key_middleware"),
-  CreditsMiddleware = require("../middlewares/credits_middldeware");
+  //const Database = require("../db"),
+  //Source = require("../models/source.model"),
+  //ApiMiddleware = require("../middlewares/api_key_middleware"),
+  //CreditsMiddleware = require("../middlewares/credits_middldeware");
+
+import * as Database from '../db.js' 
+import { Source } from '../models/source.model.js'
+import * as ApiMiddleware from '../middlewares/api_key_middleware.js'
+import * as CreditsMiddleware from '../middlewares/credits_middldeware.js'
 
 export function list (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;

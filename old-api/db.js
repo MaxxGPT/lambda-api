@@ -12,6 +12,7 @@ mongoose.set("strictQuery", false);
 dotenv.config()
 
 
+
 let atlas_connection_uri = process.env.MONGODB_ATLAS_CLUSTER_URI;
 let cachedMongoConn = null;
 
@@ -40,6 +41,7 @@ export const connectToDatabase = () => {
         resolve(cachedMongoConn);
       });
     if (!cachedMongoConn) {
+      console.log(atlas_connection_uri)
       cachedMongoConn = mongoose.connect(atlas_connection_uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,

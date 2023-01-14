@@ -1,8 +1,13 @@
 "use strict";
-const Database = require("../db"),
-  Subscriptions = require("../models/subscription.model"),
-  Users = require("../models/user.model"),
-  subscriptionService = require("../services/subscription.service");
+//const Database = require("../db"),
+  //Subscriptions = require("../models/subscription.model"),
+  //Users = require("../models/user.model"),
+  //subscriptionService = require("../services/subscription.service");
+
+  import * as Database from '../db.js' 
+  import { Subscriptions } from '../models/subscription.model.js';
+  import { Users } from '../models/usage.model.js';
+  import { subscriptionService } from '../services/subscription.service;'
 
 export function list (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;

@@ -74,115 +74,115 @@
     "ListArticlesLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-listArticles"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-listArticles"
       }
     },
     "ShowArticleLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-showArticle"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-showArticle"
       }
     },
     "ListSourcesLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-listSources"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-listSources"
       }
     },
     "ShowSourceLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-showSource"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-showSource"
       }
     },
     "UpdateSourceLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-updateSource"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-updateSource"
       }
     },
     "CreateSourceLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-createSource"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-createSource"
       }
     },
     "RemoveSourceLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-removeSource"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-removeSource"
       }
     },
     "ListSubscriptionsLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-listSubscriptions"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-listSubscriptions"
       }
     },
     "CreateUserLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-createUser"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-createUser"
       }
     },
     "ChangePasswordLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-changePassword"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-changePassword"
       }
     },
     "UserMeLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-userMe"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-userMe"
       }
     },
     "GetApiKeyLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-getApiKey"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-getApiKey"
       }
     },
     "GetUsageLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-getUsage"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-getUsage"
       }
     },
     "RemoveUsersLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-removeUsers"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-removeUsers"
       }
     },
     "UpdateUserLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-updateUser"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-updateUser"
       }
     },
     "UpdateUserPasswordLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-updateUserPassword"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-updateUserPassword"
       }
     },
     "UserRegisterLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-userRegister"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-userRegister"
       }
     },
     "UserLoginLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-userLogin"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-userLogin"
       }
     },
     "UpdateRequestsPerCycleLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/aws-lambda-api-service-prod-updateRequestsPerCycle"
+        "LogGroupName": "/aws/lambda/aws-lambda-api-service-dev-updateRequestsPerCycle"
       }
     },
     "IamRoleLambdaExecution": {
@@ -211,7 +211,7 @@
                 "-",
                 [
                   "aws-lambda-api-service",
-                  "prod",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -227,7 +227,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-lambda-api-service-prod*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-lambda-api-service-dev*:*"
                     }
                   ]
                 },
@@ -238,7 +238,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-lambda-api-service-prod*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-lambda-api-service-dev*:*:*"
                     }
                   ]
                 }
@@ -252,7 +252,7 @@
             "-",
             [
               "aws-lambda-api-service",
-              "prod",
+              "dev",
               {
                 "Ref": "AWS::Region"
               },
@@ -283,18 +283,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/articles_handler.list",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-listArticles",
+        "FunctionName": "aws-lambda-api-service-dev-listArticles",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -323,18 +329,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/articles_handler.show",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-showArticle",
+        "FunctionName": "aws-lambda-api-service-dev-showArticle",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -363,18 +375,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.list",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-listSources",
+        "FunctionName": "aws-lambda-api-service-dev-listSources",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -403,18 +421,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.show",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-showSource",
+        "FunctionName": "aws-lambda-api-service-dev-showSource",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -443,18 +467,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.update",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-updateSource",
+        "FunctionName": "aws-lambda-api-service-dev-updateSource",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -483,18 +513,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.create",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-createSource",
+        "FunctionName": "aws-lambda-api-service-dev-createSource",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -523,18 +559,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.remove",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-removeSource",
+        "FunctionName": "aws-lambda-api-service-dev-removeSource",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -563,18 +605,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/subscriptions_handler.list",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-listSubscriptions",
+        "FunctionName": "aws-lambda-api-service-dev-listSubscriptions",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -603,18 +651,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.create",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-createUser",
+        "FunctionName": "aws-lambda-api-service-dev-createUser",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -643,18 +697,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.recover_password",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-changePassword",
+        "FunctionName": "aws-lambda-api-service-dev-changePassword",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -683,18 +743,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.me",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-userMe",
+        "FunctionName": "aws-lambda-api-service-dev-userMe",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -723,18 +789,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.get_api_key",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-getApiKey",
+        "FunctionName": "aws-lambda-api-service-dev-getApiKey",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -763,18 +835,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.get_usage",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-getUsage",
+        "FunctionName": "aws-lambda-api-service-dev-getUsage",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -803,18 +881,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.remove",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-removeUsers",
+        "FunctionName": "aws-lambda-api-service-dev-removeUsers",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -843,18 +927,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.update",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-updateUser",
+        "FunctionName": "aws-lambda-api-service-dev-updateUser",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -883,18 +973,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.change_password",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-updateUserPassword",
+        "FunctionName": "aws-lambda-api-service-dev-updateUserPassword",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -923,18 +1019,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.register",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-userRegister",
+        "FunctionName": "aws-lambda-api-service-dev-userRegister",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -963,18 +1065,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.login",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-userLogin",
+        "FunctionName": "aws-lambda-api-service-dev-userLogin",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -1003,18 +1111,24 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/prod/1673200144922-2023-01-08T17:49:04.922Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/subscriptions_handler.updateRequestsPerCycle",
         "Runtime": "nodejs14.x",
-        "FunctionName": "aws-lambda-api-service-prod-updateRequestsPerCycle",
+        "FunctionName": "aws-lambda-api-service-dev-updateRequestsPerCycle",
         "MemorySize": 1024,
         "Timeout": 60,
         "Environment": {
           "Variables": {
-            "MONGODB_ATLAS_CLUSTER_URI": "${MONGODB_ATLAS_CLUSTER_URI}",
+            "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
             "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}"
+            "ClientId": "${COGNITO_USER_CLIENT}",
+            "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
+            "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
+            "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
+            "COGNITO_REGION": "us-east-1",
+            "COGNITO_USER_POOL_NAME": "cannabis_news_api_users_client",
+            "LAMBDA_FUNCTION_NAME": "MongoDB_Atlas_Connection"
           }
         },
         "Role": {
@@ -1036,194 +1150,194 @@
         "UpdateRequestsPerCycleLogGroup"
       ]
     },
-    "ListArticlesLambdaVersionArWOxHMS2pJMJUKe41mbxDMeC2HQfVLMf0MDrUCLuQ": {
+    "ListArticlesLambdaVersionm50wen7GXpb941XEqFprkDYdfQ7VRrJlHfm7iAeUrk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ListArticlesLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "ShowArticleLambdaVersionFzUbMUvgYZV28rMk798xqOLg2n1IVr2TPfvOqjdaC4": {
+    "ShowArticleLambdaVersioneFP5KT5sIveQsm3G1njjM6pO21S3Tvu1hMZVYTyweM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ShowArticleLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "ListSourcesLambdaVersion8Hh2KzCCsjmTKhb3QwZXaKwXRWdheaDNPXcrq4miYY": {
+    "ListSourcesLambdaVersionis3iTiNE3sDYHaUaApWZQIrYbxz74yX6bGTd5wPu0L0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ListSourcesLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "ShowSourceLambdaVersionJ1F3s3KXO43dlJqgMt6Y7IFv7EKZbDIYzrX6VqI3kCk": {
+    "ShowSourceLambdaVersiondaWHMtlWZgrIGl4DXBJcDMDGBrmDsydRIKlJtpQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ShowSourceLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UpdateSourceLambdaVersionN7rAn99wPWEOrcrH95w6k4YZaT9ALQu1WcML2JQ0s": {
+    "UpdateSourceLambdaVersionYcvFX8Z4HzaVLa2RyhGHWBOQAInJzZDkwqYsS0XY6w": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateSourceLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "CreateSourceLambdaVersionVNzPmTUGeHPWhkJdCMx5HNnYFQAGvA7zXUTWRbAnw": {
+    "CreateSourceLambdaVersionfakPKwnVtp6HWBtZC5lmNRxs6HOqItmSL2HYjXXLGBI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateSourceLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "RemoveSourceLambdaVersioncCjiWdfixZp98Kxc9xbFnqKVYTqW9UipdY1XKWO4": {
+    "RemoveSourceLambdaVersion3dOGQdlazhv9mSg1aaJHL9WIKdaMj99WAIoCYbwsgA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RemoveSourceLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "ListSubscriptionsLambdaVersionSWNMNwSZHEMOrTyRcqtwfrpAfUV6sy5yRAaRasAudOE": {
+    "ListSubscriptionsLambdaVersionmYVOdS22jpijPnK3OY77Asilo2rjt90wdGV2muEgu8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ListSubscriptionsLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "CreateUserLambdaVersione3SHsaB98LDorlVBLnGnGlFRhNmAqTyoWq2tjUB4": {
+    "CreateUserLambdaVersion4HFj00COwQbrXTZpcpjKghES0C4gmkadu26CsXm9Uxg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "ChangePasswordLambdaVersionx5Mn4zOhR5W7wo2M6Fmu16pQrshHaMdTHgophRt8Q": {
+    "ChangePasswordLambdaVersionMoE0PdJoyYlbk8yhNkjainw9dXwhfZ4tZImSiT9WTQo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ChangePasswordLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UserMeLambdaVersioni5wAm5ZuciRfnPitaUV55jdKGksQtMbZRPTNfsBErE": {
+    "UserMeLambdaVersionFk7kTFRoYLZ3ew17ru0uIlit2xzET1vQ4ZOddpb88uA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UserMeLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "GetApiKeyLambdaVersioniS7HBxr4QRdCYdmVUoChAyRzgru4pK2K41AVCtO8": {
+    "GetApiKeyLambdaVersionXcrvhlPq73Ycgmr0sulXWfg8W6GCDxqdXIZL2jaMvZg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetApiKeyLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "GetUsageLambdaVersionxLrLU54JGXhMgdo5WqsHgbcxIGooIX03Fy6WvGL0YQ": {
+    "GetUsageLambdaVersionTJSwCHFzxusY6ui75NMrKMphOxfnl4NyJKAuPA6I1I": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUsageLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "RemoveUsersLambdaVersionlF28a6UFwrgMyZ2RAAkiH5VNG4kKIzmQEKyjgFeQ": {
+    "RemoveUsersLambdaVersionFgcfrfxojEFL1QfPqifdLnXJJxksQkQu2kCEi7xVg4k": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RemoveUsersLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UpdateUserLambdaVersionWQw8O6wFqrTnnuSIsNVkY94RnR6RRx2r57SM0psGw": {
+    "UpdateUserLambdaVersion6fLbTNYNu6vHRmaMdO7qHfWPnibyQ3QF5wdKR4ZKY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateUserLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UpdateUserPasswordLambdaVersion3T1XxwoHpmmKCjoaM9TAvAnctBqJP0ZY9TqwjA": {
+    "UpdateUserPasswordLambdaVersionL1sXuolDDizUG90zGVwyMOK5gHSdwGgtXzRbcv6XGz4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateUserPasswordLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UserRegisterLambdaVersion45JTx5Aab5smK58OfbSYNZbvSZBUxTJB1KCh5rK0": {
+    "UserRegisterLambdaVersion3L1KtDoiZXuWPMcxAryaLGMEgsc7KtDIZQljzqNIZc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UserRegisterLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UserLoginLambdaVersiondUM4fcxuEQ5RPwTLVIbDPTEgNtNt29ts6YbM1fCXURQ": {
+    "UserLoginLambdaVersionj96uigG8lus8rPfmOQn0nfHEoHIrcQeuj9Lbopy10": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UserLoginLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
-    "UpdateRequestsPerCycleLambdaVersiontzGLgKLYypLaeYpZozSfaPcM360oGdKfYMXF4Wls": {
+    "UpdateRequestsPerCycleLambdaVersionZTcLvtMhnxEVyzBHXdj6pDO8aQVZslIt8vP1DND3o": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateRequestsPerCycleLambdaFunction"
         },
-        "CodeSha256": "S4snLyjm6+SUwpcDGYjjKf3htPVJyvVUVh76egB69eg="
+        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
       }
     },
     "UpdateRequestsPerCycleEventsRuleSchedule1": {
@@ -1266,7 +1380,7 @@
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "prod-aws-lambda-api-service",
+        "Name": "dev-aws-lambda-api-service",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -2913,13 +3027,13 @@
         "UserLoginLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1673200137782": {
+    "ApiGatewayDeployment1673711753812": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
-        "StageName": "prod"
+        "StageName": "dev"
       },
       "DependsOn": [
         "ApiGatewayMethodArticlesOptions",
@@ -3629,178 +3743,178 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ServerlessDeploymentBucketName"
+        "Name": "sls-aws-lambda-api-service-dev-ServerlessDeploymentBucketName"
       }
     },
     "ListArticlesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ListArticlesLambdaVersionArWOxHMS2pJMJUKe41mbxDMeC2HQfVLMf0MDrUCLuQ"
+        "Ref": "ListArticlesLambdaVersionm50wen7GXpb941XEqFprkDYdfQ7VRrJlHfm7iAeUrk"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ListArticlesLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-ListArticlesLambdaFunctionQualifiedArn"
       }
     },
     "ShowArticleLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ShowArticleLambdaVersionFzUbMUvgYZV28rMk798xqOLg2n1IVr2TPfvOqjdaC4"
+        "Ref": "ShowArticleLambdaVersioneFP5KT5sIveQsm3G1njjM6pO21S3Tvu1hMZVYTyweM"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ShowArticleLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-ShowArticleLambdaFunctionQualifiedArn"
       }
     },
     "ListSourcesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ListSourcesLambdaVersion8Hh2KzCCsjmTKhb3QwZXaKwXRWdheaDNPXcrq4miYY"
+        "Ref": "ListSourcesLambdaVersionis3iTiNE3sDYHaUaApWZQIrYbxz74yX6bGTd5wPu0L0"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ListSourcesLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-ListSourcesLambdaFunctionQualifiedArn"
       }
     },
     "ShowSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ShowSourceLambdaVersionJ1F3s3KXO43dlJqgMt6Y7IFv7EKZbDIYzrX6VqI3kCk"
+        "Ref": "ShowSourceLambdaVersiondaWHMtlWZgrIGl4DXBJcDMDGBrmDsydRIKlJtpQ"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ShowSourceLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-ShowSourceLambdaFunctionQualifiedArn"
       }
     },
     "UpdateSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateSourceLambdaVersionN7rAn99wPWEOrcrH95w6k4YZaT9ALQu1WcML2JQ0s"
+        "Ref": "UpdateSourceLambdaVersionYcvFX8Z4HzaVLa2RyhGHWBOQAInJzZDkwqYsS0XY6w"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UpdateSourceLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UpdateSourceLambdaFunctionQualifiedArn"
       }
     },
     "CreateSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateSourceLambdaVersionVNzPmTUGeHPWhkJdCMx5HNnYFQAGvA7zXUTWRbAnw"
+        "Ref": "CreateSourceLambdaVersionfakPKwnVtp6HWBtZC5lmNRxs6HOqItmSL2HYjXXLGBI"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-CreateSourceLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-CreateSourceLambdaFunctionQualifiedArn"
       }
     },
     "RemoveSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RemoveSourceLambdaVersioncCjiWdfixZp98Kxc9xbFnqKVYTqW9UipdY1XKWO4"
+        "Ref": "RemoveSourceLambdaVersion3dOGQdlazhv9mSg1aaJHL9WIKdaMj99WAIoCYbwsgA"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-RemoveSourceLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-RemoveSourceLambdaFunctionQualifiedArn"
       }
     },
     "ListSubscriptionsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ListSubscriptionsLambdaVersionSWNMNwSZHEMOrTyRcqtwfrpAfUV6sy5yRAaRasAudOE"
+        "Ref": "ListSubscriptionsLambdaVersionmYVOdS22jpijPnK3OY77Asilo2rjt90wdGV2muEgu8"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ListSubscriptionsLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-ListSubscriptionsLambdaFunctionQualifiedArn"
       }
     },
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersione3SHsaB98LDorlVBLnGnGlFRhNmAqTyoWq2tjUB4"
+        "Ref": "CreateUserLambdaVersion4HFj00COwQbrXTZpcpjKghES0C4gmkadu26CsXm9Uxg"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-CreateUserLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-CreateUserLambdaFunctionQualifiedArn"
       }
     },
     "ChangePasswordLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ChangePasswordLambdaVersionx5Mn4zOhR5W7wo2M6Fmu16pQrshHaMdTHgophRt8Q"
+        "Ref": "ChangePasswordLambdaVersionMoE0PdJoyYlbk8yhNkjainw9dXwhfZ4tZImSiT9WTQo"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ChangePasswordLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-ChangePasswordLambdaFunctionQualifiedArn"
       }
     },
     "UserMeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UserMeLambdaVersioni5wAm5ZuciRfnPitaUV55jdKGksQtMbZRPTNfsBErE"
+        "Ref": "UserMeLambdaVersionFk7kTFRoYLZ3ew17ru0uIlit2xzET1vQ4ZOddpb88uA"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UserMeLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UserMeLambdaFunctionQualifiedArn"
       }
     },
     "GetApiKeyLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetApiKeyLambdaVersioniS7HBxr4QRdCYdmVUoChAyRzgru4pK2K41AVCtO8"
+        "Ref": "GetApiKeyLambdaVersionXcrvhlPq73Ycgmr0sulXWfg8W6GCDxqdXIZL2jaMvZg"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-GetApiKeyLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-GetApiKeyLambdaFunctionQualifiedArn"
       }
     },
     "GetUsageLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUsageLambdaVersionxLrLU54JGXhMgdo5WqsHgbcxIGooIX03Fy6WvGL0YQ"
+        "Ref": "GetUsageLambdaVersionTJSwCHFzxusY6ui75NMrKMphOxfnl4NyJKAuPA6I1I"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-GetUsageLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-GetUsageLambdaFunctionQualifiedArn"
       }
     },
     "RemoveUsersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RemoveUsersLambdaVersionlF28a6UFwrgMyZ2RAAkiH5VNG4kKIzmQEKyjgFeQ"
+        "Ref": "RemoveUsersLambdaVersionFgcfrfxojEFL1QfPqifdLnXJJxksQkQu2kCEi7xVg4k"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-RemoveUsersLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-RemoveUsersLambdaFunctionQualifiedArn"
       }
     },
     "UpdateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateUserLambdaVersionWQw8O6wFqrTnnuSIsNVkY94RnR6RRx2r57SM0psGw"
+        "Ref": "UpdateUserLambdaVersion6fLbTNYNu6vHRmaMdO7qHfWPnibyQ3QF5wdKR4ZKY"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UpdateUserLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UpdateUserLambdaFunctionQualifiedArn"
       }
     },
     "UpdateUserPasswordLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateUserPasswordLambdaVersion3T1XxwoHpmmKCjoaM9TAvAnctBqJP0ZY9TqwjA"
+        "Ref": "UpdateUserPasswordLambdaVersionL1sXuolDDizUG90zGVwyMOK5gHSdwGgtXzRbcv6XGz4"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UpdateUserPasswordLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UpdateUserPasswordLambdaFunctionQualifiedArn"
       }
     },
     "UserRegisterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UserRegisterLambdaVersion45JTx5Aab5smK58OfbSYNZbvSZBUxTJB1KCh5rK0"
+        "Ref": "UserRegisterLambdaVersion3L1KtDoiZXuWPMcxAryaLGMEgsc7KtDIZQljzqNIZc"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UserRegisterLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UserRegisterLambdaFunctionQualifiedArn"
       }
     },
     "UserLoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UserLoginLambdaVersiondUM4fcxuEQ5RPwTLVIbDPTEgNtNt29ts6YbM1fCXURQ"
+        "Ref": "UserLoginLambdaVersionj96uigG8lus8rPfmOQn0nfHEoHIrcQeuj9Lbopy10"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UserLoginLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UserLoginLambdaFunctionQualifiedArn"
       }
     },
     "UpdateRequestsPerCycleLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateRequestsPerCycleLambdaVersiontzGLgKLYypLaeYpZozSfaPcM360oGdKfYMXF4Wls"
+        "Ref": "UpdateRequestsPerCycleLambdaVersionZTcLvtMhnxEVyzBHXdj6pDO8aQVZslIt8vP1DND3o"
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-UpdateRequestsPerCycleLambdaFunctionQualifiedArn"
+        "Name": "sls-aws-lambda-api-service-dev-UpdateRequestsPerCycleLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -3821,12 +3935,12 @@
             {
               "Ref": "AWS::URLSuffix"
             },
-            "/prod"
+            "/dev"
           ]
         ]
       },
       "Export": {
-        "Name": "sls-aws-lambda-api-service-prod-ServiceEndpoint"
+        "Name": "sls-aws-lambda-api-service-dev-ServiceEndpoint"
       }
     }
   }
