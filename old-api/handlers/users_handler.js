@@ -314,8 +314,9 @@ export function create (event, context, callback) {
       let body = querystring.decode(event.body);
       const randomKey = uuidv4();
       let newUser = new User({
-        firstName: body.firstName,
-        lastName: body.lastName,
+        //firstName: body.firstName,
+        //lastName: body.lastName,
+        name: body.name,
         email: body.email,
         password: body.password,
         apiKey: randomKey.replace(/-/g, ""),
