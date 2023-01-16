@@ -21,9 +21,13 @@ provider:
       - subnet-0f39abb3b3e5d8e7e
       
   environment: 
-    MONGODB_ATLAS_CLUSTER_URI: '{{ssm:MONGODB_ATLAS_CLUSTER_URI}}' #${ssm:MONGODB_ATLAS_CLUSTER_URI} #${self:custom.mongodb.MONGODB_ATLAS_CLUSTER_URI}           
-    UserPoolId: ${COGNITO_USER_POOL}
-    ClientId: ${COGNITO_USER_CLIENT}
+    MONGODB_ATLAS_CLUSTER_URI: ${ssm:MONGODB_ATLAS_CLUSTER_URI}
+    JWT_ACCOUNT_ACTIVATION: ${file(./env.yml):${opt:stage}.JWT_ACCOUNT_ACTIVATION}
+    COGNITO_USER_POOL: ${file(./env.yml):${opt:stage}.COGNITO_USER_POOL}
+    COGNITO_USER_CLIENT: ${file(./env.yml):${opt:stage}.COGNITO_USER_CLIENT}
+    COGNITO_REGION: ${file(./env.yml):${opt:stage}.COGNITO_REGION}
+    COGNITO_USER_POOL_NAME: ${file(./env.yml):${opt:stage}.COGNITO_USER_POOL_NAME}
+    LAMBDA_FUNCTION_NAME: ${file(./env.yml):${opt:stage}.LAMBDA_FUNCTION_NAME}
     
 
 functions:
@@ -184,4 +188,3 @@ useDotenv: true
 plugins:
   - serverless-offline
   - serverless-middleware
-  - serverless-dotenv-plugin
