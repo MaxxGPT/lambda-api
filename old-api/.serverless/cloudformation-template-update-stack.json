@@ -283,7 +283,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/articles_handler.list",
         "Runtime": "nodejs14.x",
@@ -293,8 +293,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -329,7 +327,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/articles_handler.show",
         "Runtime": "nodejs14.x",
@@ -339,8 +337,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -375,7 +371,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.list",
         "Runtime": "nodejs14.x",
@@ -385,8 +381,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -421,7 +415,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.show",
         "Runtime": "nodejs14.x",
@@ -431,8 +425,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -467,7 +459,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.update",
         "Runtime": "nodejs14.x",
@@ -477,8 +469,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -513,7 +503,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.create",
         "Runtime": "nodejs14.x",
@@ -523,8 +513,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -559,7 +547,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/sources_handler.remove",
         "Runtime": "nodejs14.x",
@@ -569,8 +557,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -605,7 +591,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/subscriptions_handler.list",
         "Runtime": "nodejs14.x",
@@ -615,8 +601,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -651,7 +635,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.create",
         "Runtime": "nodejs14.x",
@@ -661,8 +645,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -697,7 +679,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.recover_password",
         "Runtime": "nodejs14.x",
@@ -707,8 +689,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -743,7 +723,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.me",
         "Runtime": "nodejs14.x",
@@ -753,8 +733,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -789,7 +767,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.get_api_key",
         "Runtime": "nodejs14.x",
@@ -799,8 +777,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -835,7 +811,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.get_usage",
         "Runtime": "nodejs14.x",
@@ -845,8 +821,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -881,7 +855,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.remove",
         "Runtime": "nodejs14.x",
@@ -891,8 +865,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -927,7 +899,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.update",
         "Runtime": "nodejs14.x",
@@ -937,8 +909,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -973,7 +943,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.change_password",
         "Runtime": "nodejs14.x",
@@ -983,8 +953,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -1019,7 +987,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.register",
         "Runtime": "nodejs14.x",
@@ -1029,8 +997,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -1065,7 +1031,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/users_handler.login",
         "Runtime": "nodejs14.x",
@@ -1075,8 +1041,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -1111,7 +1075,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-lambda-api-service/dev/1673711760608-2023-01-14T15:56:00.608Z/aws-lambda-api-service.zip"
+          "S3Key": "serverless/aws-lambda-api-service/dev/1673893114804-2023-01-16T18:18:34.804Z/aws-lambda-api-service.zip"
         },
         "Handler": "handlers/subscriptions_handler.updateRequestsPerCycle",
         "Runtime": "nodejs14.x",
@@ -1121,8 +1085,6 @@
         "Environment": {
           "Variables": {
             "MONGODB_ATLAS_CLUSTER_URI": "mongodb+srv://Prod-API-User:zF0eKdkgCPM7I19I@mongodb-prod.zzl18.mongodb.net/NewsAPI",
-            "UserPoolId": "${COGNITO_USER_POOL}",
-            "ClientId": "${COGNITO_USER_CLIENT}",
             "JWT_ACCOUNT_ACTIVATION": "CannabisNewsAPIJWTAccountActivation1029384857",
             "COGNITO_USER_POOL": "us-east-1_I3DKecNsh",
             "COGNITO_USER_CLIENT": "3bkhbfcs6u467f4q9ln4mcob40",
@@ -1150,194 +1112,194 @@
         "UpdateRequestsPerCycleLogGroup"
       ]
     },
-    "ListArticlesLambdaVersionm50wen7GXpb941XEqFprkDYdfQ7VRrJlHfm7iAeUrk": {
+    "ListArticlesLambdaVersionqIvOkXmR5WPXFqrWDhv3cq0M8grYmMPDLGG3TCYED0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ListArticlesLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "ShowArticleLambdaVersioneFP5KT5sIveQsm3G1njjM6pO21S3Tvu1hMZVYTyweM": {
+    "ShowArticleLambdaVersionel30kZiur3QiM8HTU6cdFJMo9PU6x8ukx0WkyreHw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ShowArticleLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "ListSourcesLambdaVersionis3iTiNE3sDYHaUaApWZQIrYbxz74yX6bGTd5wPu0L0": {
+    "ListSourcesLambdaVersion9uMrOR9Re7UuhFo67CQfGppaDXrwkIK0nk08Rxhz0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ListSourcesLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "ShowSourceLambdaVersiondaWHMtlWZgrIGl4DXBJcDMDGBrmDsydRIKlJtpQ": {
+    "ShowSourceLambdaVersionekfAZAzAmG2tILOq0kIf51EwQtlzFEkozGvfQT37c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ShowSourceLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UpdateSourceLambdaVersionYcvFX8Z4HzaVLa2RyhGHWBOQAInJzZDkwqYsS0XY6w": {
+    "UpdateSourceLambdaVersionlhKms6XOu7kriYNgHQvo7yHs9Cwm3pxUWJoeQ3WrK0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateSourceLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "CreateSourceLambdaVersionfakPKwnVtp6HWBtZC5lmNRxs6HOqItmSL2HYjXXLGBI": {
+    "CreateSourceLambdaVersionmxYTYMSEFAxM9UBEVaLrst0idwh6Mz0P9UMqKlMM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateSourceLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "RemoveSourceLambdaVersion3dOGQdlazhv9mSg1aaJHL9WIKdaMj99WAIoCYbwsgA": {
+    "RemoveSourceLambdaVersionysRiQ0JZksAkXSzx4IxtzRrO6oxeEpJJwvqUeFhvwo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RemoveSourceLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "ListSubscriptionsLambdaVersionmYVOdS22jpijPnK3OY77Asilo2rjt90wdGV2muEgu8": {
+    "ListSubscriptionsLambdaVersionFQwNvTR6yrH1PWxUXPpF3Y2q9zdvPeNV0KizfmBQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ListSubscriptionsLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "CreateUserLambdaVersion4HFj00COwQbrXTZpcpjKghES0C4gmkadu26CsXm9Uxg": {
+    "CreateUserLambdaVersionskPf9zrSOrKUA6OjKJdx8TpLRHiDckrNx0AI3q33QA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "ChangePasswordLambdaVersionMoE0PdJoyYlbk8yhNkjainw9dXwhfZ4tZImSiT9WTQo": {
+    "ChangePasswordLambdaVersionb9rjrUfQtXuzzUpakgstDWKPRKWWpf9RWn3L5B5ugs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ChangePasswordLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UserMeLambdaVersionFk7kTFRoYLZ3ew17ru0uIlit2xzET1vQ4ZOddpb88uA": {
+    "UserMeLambdaVersionnr4vOzzyBXwZtzF42CObO9dFXOOGvqndwGlqIRF2twE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UserMeLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "GetApiKeyLambdaVersionXcrvhlPq73Ycgmr0sulXWfg8W6GCDxqdXIZL2jaMvZg": {
+    "GetApiKeyLambdaVersion8mGIVsUtPV59PBwBSRiX6ylr4R1Jvg4X8FkTenrphU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetApiKeyLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "GetUsageLambdaVersionTJSwCHFzxusY6ui75NMrKMphOxfnl4NyJKAuPA6I1I": {
+    "GetUsageLambdaVersiondlnWZKp7fN8LbZ5tgJcvcNDzAA8mt7PML37sgsipjT4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUsageLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "RemoveUsersLambdaVersionFgcfrfxojEFL1QfPqifdLnXJJxksQkQu2kCEi7xVg4k": {
+    "RemoveUsersLambdaVersionnmK94FGl0FxGeSxAfvY6qtCT5IFlpCJNRIpMVDotU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RemoveUsersLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UpdateUserLambdaVersion6fLbTNYNu6vHRmaMdO7qHfWPnibyQ3QF5wdKR4ZKY": {
+    "UpdateUserLambdaVersionGN7GlZ2fp9q10QRSqLHmlZkUcwv7VIYhpat3SpRVOQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateUserLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UpdateUserPasswordLambdaVersionL1sXuolDDizUG90zGVwyMOK5gHSdwGgtXzRbcv6XGz4": {
+    "UpdateUserPasswordLambdaVersiongrmKIH06jNQlmE4pPujTMGbV6gs4wRaWR2cRIskyUI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateUserPasswordLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UserRegisterLambdaVersion3L1KtDoiZXuWPMcxAryaLGMEgsc7KtDIZQljzqNIZc": {
+    "UserRegisterLambdaVersionj9447lX3wpb2ktWCflJZ501Ww39rk25tpfhiTAjd3c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UserRegisterLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UserLoginLambdaVersionj96uigG8lus8rPfmOQn0nfHEoHIrcQeuj9Lbopy10": {
+    "UserLoginLambdaVersionGbsUEBsbDDPEbU27HcoR3MNHa2UrA76owe95Nxl4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UserLoginLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
-    "UpdateRequestsPerCycleLambdaVersionZTcLvtMhnxEVyzBHXdj6pDO8aQVZslIt8vP1DND3o": {
+    "UpdateRequestsPerCycleLambdaVersionr3puPkRYwAZv4sFxxRIcF4XydSm7zDuZvB1k26n8cU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateRequestsPerCycleLambdaFunction"
         },
-        "CodeSha256": "qZlqHlzB29iqpuLoOvLEPWoywxl2QklTxGUUBHqV5uQ="
+        "CodeSha256": "47gWL3Yg/8Q/h0OG+q2g9VTCWY+hy/0vKZnpbtGw+7U="
       }
     },
     "UpdateRequestsPerCycleEventsRuleSchedule1": {
@@ -3027,7 +2989,7 @@
         "UserLoginLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1673711753812": {
+    "ApiGatewayDeployment1673893105784": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -3749,7 +3711,7 @@
     "ListArticlesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ListArticlesLambdaVersionm50wen7GXpb941XEqFprkDYdfQ7VRrJlHfm7iAeUrk"
+        "Ref": "ListArticlesLambdaVersionqIvOkXmR5WPXFqrWDhv3cq0M8grYmMPDLGG3TCYED0"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-ListArticlesLambdaFunctionQualifiedArn"
@@ -3758,7 +3720,7 @@
     "ShowArticleLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ShowArticleLambdaVersioneFP5KT5sIveQsm3G1njjM6pO21S3Tvu1hMZVYTyweM"
+        "Ref": "ShowArticleLambdaVersionel30kZiur3QiM8HTU6cdFJMo9PU6x8ukx0WkyreHw"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-ShowArticleLambdaFunctionQualifiedArn"
@@ -3767,7 +3729,7 @@
     "ListSourcesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ListSourcesLambdaVersionis3iTiNE3sDYHaUaApWZQIrYbxz74yX6bGTd5wPu0L0"
+        "Ref": "ListSourcesLambdaVersion9uMrOR9Re7UuhFo67CQfGppaDXrwkIK0nk08Rxhz0"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-ListSourcesLambdaFunctionQualifiedArn"
@@ -3776,7 +3738,7 @@
     "ShowSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ShowSourceLambdaVersiondaWHMtlWZgrIGl4DXBJcDMDGBrmDsydRIKlJtpQ"
+        "Ref": "ShowSourceLambdaVersionekfAZAzAmG2tILOq0kIf51EwQtlzFEkozGvfQT37c"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-ShowSourceLambdaFunctionQualifiedArn"
@@ -3785,7 +3747,7 @@
     "UpdateSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateSourceLambdaVersionYcvFX8Z4HzaVLa2RyhGHWBOQAInJzZDkwqYsS0XY6w"
+        "Ref": "UpdateSourceLambdaVersionlhKms6XOu7kriYNgHQvo7yHs9Cwm3pxUWJoeQ3WrK0"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UpdateSourceLambdaFunctionQualifiedArn"
@@ -3794,7 +3756,7 @@
     "CreateSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateSourceLambdaVersionfakPKwnVtp6HWBtZC5lmNRxs6HOqItmSL2HYjXXLGBI"
+        "Ref": "CreateSourceLambdaVersionmxYTYMSEFAxM9UBEVaLrst0idwh6Mz0P9UMqKlMM"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-CreateSourceLambdaFunctionQualifiedArn"
@@ -3803,7 +3765,7 @@
     "RemoveSourceLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RemoveSourceLambdaVersion3dOGQdlazhv9mSg1aaJHL9WIKdaMj99WAIoCYbwsgA"
+        "Ref": "RemoveSourceLambdaVersionysRiQ0JZksAkXSzx4IxtzRrO6oxeEpJJwvqUeFhvwo"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-RemoveSourceLambdaFunctionQualifiedArn"
@@ -3812,7 +3774,7 @@
     "ListSubscriptionsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ListSubscriptionsLambdaVersionmYVOdS22jpijPnK3OY77Asilo2rjt90wdGV2muEgu8"
+        "Ref": "ListSubscriptionsLambdaVersionFQwNvTR6yrH1PWxUXPpF3Y2q9zdvPeNV0KizfmBQ"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-ListSubscriptionsLambdaFunctionQualifiedArn"
@@ -3821,7 +3783,7 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersion4HFj00COwQbrXTZpcpjKghES0C4gmkadu26CsXm9Uxg"
+        "Ref": "CreateUserLambdaVersionskPf9zrSOrKUA6OjKJdx8TpLRHiDckrNx0AI3q33QA"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -3830,7 +3792,7 @@
     "ChangePasswordLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ChangePasswordLambdaVersionMoE0PdJoyYlbk8yhNkjainw9dXwhfZ4tZImSiT9WTQo"
+        "Ref": "ChangePasswordLambdaVersionb9rjrUfQtXuzzUpakgstDWKPRKWWpf9RWn3L5B5ugs"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-ChangePasswordLambdaFunctionQualifiedArn"
@@ -3839,7 +3801,7 @@
     "UserMeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UserMeLambdaVersionFk7kTFRoYLZ3ew17ru0uIlit2xzET1vQ4ZOddpb88uA"
+        "Ref": "UserMeLambdaVersionnr4vOzzyBXwZtzF42CObO9dFXOOGvqndwGlqIRF2twE"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UserMeLambdaFunctionQualifiedArn"
@@ -3848,7 +3810,7 @@
     "GetApiKeyLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetApiKeyLambdaVersionXcrvhlPq73Ycgmr0sulXWfg8W6GCDxqdXIZL2jaMvZg"
+        "Ref": "GetApiKeyLambdaVersion8mGIVsUtPV59PBwBSRiX6ylr4R1Jvg4X8FkTenrphU"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-GetApiKeyLambdaFunctionQualifiedArn"
@@ -3857,7 +3819,7 @@
     "GetUsageLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUsageLambdaVersionTJSwCHFzxusY6ui75NMrKMphOxfnl4NyJKAuPA6I1I"
+        "Ref": "GetUsageLambdaVersiondlnWZKp7fN8LbZ5tgJcvcNDzAA8mt7PML37sgsipjT4"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-GetUsageLambdaFunctionQualifiedArn"
@@ -3866,7 +3828,7 @@
     "RemoveUsersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RemoveUsersLambdaVersionFgcfrfxojEFL1QfPqifdLnXJJxksQkQu2kCEi7xVg4k"
+        "Ref": "RemoveUsersLambdaVersionnmK94FGl0FxGeSxAfvY6qtCT5IFlpCJNRIpMVDotU"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-RemoveUsersLambdaFunctionQualifiedArn"
@@ -3875,7 +3837,7 @@
     "UpdateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateUserLambdaVersion6fLbTNYNu6vHRmaMdO7qHfWPnibyQ3QF5wdKR4ZKY"
+        "Ref": "UpdateUserLambdaVersionGN7GlZ2fp9q10QRSqLHmlZkUcwv7VIYhpat3SpRVOQ"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UpdateUserLambdaFunctionQualifiedArn"
@@ -3884,7 +3846,7 @@
     "UpdateUserPasswordLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateUserPasswordLambdaVersionL1sXuolDDizUG90zGVwyMOK5gHSdwGgtXzRbcv6XGz4"
+        "Ref": "UpdateUserPasswordLambdaVersiongrmKIH06jNQlmE4pPujTMGbV6gs4wRaWR2cRIskyUI"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UpdateUserPasswordLambdaFunctionQualifiedArn"
@@ -3893,7 +3855,7 @@
     "UserRegisterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UserRegisterLambdaVersion3L1KtDoiZXuWPMcxAryaLGMEgsc7KtDIZQljzqNIZc"
+        "Ref": "UserRegisterLambdaVersionj9447lX3wpb2ktWCflJZ501Ww39rk25tpfhiTAjd3c"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UserRegisterLambdaFunctionQualifiedArn"
@@ -3902,7 +3864,7 @@
     "UserLoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UserLoginLambdaVersionj96uigG8lus8rPfmOQn0nfHEoHIrcQeuj9Lbopy10"
+        "Ref": "UserLoginLambdaVersionGbsUEBsbDDPEbU27HcoR3MNHa2UrA76owe95Nxl4"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UserLoginLambdaFunctionQualifiedArn"
@@ -3911,7 +3873,7 @@
     "UpdateRequestsPerCycleLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateRequestsPerCycleLambdaVersionZTcLvtMhnxEVyzBHXdj6pDO8aQVZslIt8vP1DND3o"
+        "Ref": "UpdateRequestsPerCycleLambdaVersionr3puPkRYwAZv4sFxxRIcF4XydSm7zDuZvB1k26n8cU"
       },
       "Export": {
         "Name": "sls-aws-lambda-api-service-dev-UpdateRequestsPerCycleLambdaFunctionQualifiedArn"
