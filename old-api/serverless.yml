@@ -177,6 +177,9 @@ functions:
           path: users/login
           method: post
           cors: true
+  cognito_post_confirmation:
+    handler: handlers/users_handler.post_confirmation
+    timeout: 30
 
   updateRequestsPerCycle:
     handler: handlers/subscriptions_handler.updateRequestsPerCycle

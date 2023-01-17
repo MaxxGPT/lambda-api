@@ -729,6 +729,29 @@ export function get_usage (event, context, callback) {
     });
 };
 
+export async function post_confirmation (event, context, callback) {
+    console.log(`Start Event: ${JSON.stringify(event, null, 2)}`);
+    try{
+        if (event.userPoolId == process.env.COGNITO_USER_POOL) {
+            if (event.triggerSource == 'PostConfirmation_ConfirmSignUp') {
+                const randomKey = uuidv4();
+                let newUser = new User({
+                    name: event.request.userAttributes['name'],
+                    email: event.request.userAttributes['email'],
+                    apiKey: randomKey.replace(/-/g, ""),
+                    cognito_id: event.request.userAttributes['sub'],
+                });
+                let user = await newUser.save();
+                console.log(user);
+            }
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+    callback(null, event);
+}
+
 // /* Update information for payment user */
 // module.exports.update_payment = (event, context, callback) => {
 //   context.callbackWaitsForEmptyEventLoop = false;
