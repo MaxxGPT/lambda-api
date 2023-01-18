@@ -731,9 +731,12 @@ export function get_usage (event, context, callback) {
 
 export async function post_confirmation (event, context, callback) {
     console.log(`Start Event: ${JSON.stringify(event, null, 2)}`);
+    context.callbackWaitsForEmptyEventLoop = false;
     try{
         if (event.userPoolId == process.env.COGNITO_USER_POOL) {
             if (event.triggerSource == 'PostConfirmation_ConfirmSignUp') {
+                await Database.connectToDatabase();
+                console.log("Database connected successfully");``
                 const randomKey = uuidv4();
                 let newUser = new User({
                     name: event.request.userAttributes['name'],
@@ -743,11 +746,12 @@ export async function post_confirmation (event, context, callback) {
                 });
                 let user = await newUser.save();
                 console.log(user);
+                console.log("User Added Successfully");
             }
         }
     }
     catch(err){
-        console.log(err);
+        console.log(err.stack);
     }
     callback(null, event);
 }

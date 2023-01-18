@@ -28,8 +28,7 @@ const userSchema = new Schema(
     },
     name: {
       type: String,
-      trim: true,
-      required: true,
+      trim: true
     },
     /*firstName: {
       type: String,
@@ -84,8 +83,10 @@ const userSchema = new Schema(
 );
 
 userSchema.methods.generateHash = function (cb) {
-  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), cb);
-  return cb();
+    if(this.password){
+        this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), cb);
+    }
+    return cb();
 };
 
 userSchema.methods.generateToken = function () {
