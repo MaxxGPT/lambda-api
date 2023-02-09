@@ -181,6 +181,19 @@ functions:
           path: users/login
           method: post
           cors: true
+  demoAPI:
+    handler: handlers/authorizer_handler.demoApi
+    timeout: 30
+    events:
+      - http:
+          path: demoAPI
+          method: post
+          cors: true
+          authorizer: 
+            name: customAuthorizer
+            identitySource: method.request.querystring.apiKey
+  customAuthorizer:
+    handler: handlers/authorizer_handler.authorize
           
   cognito_post_confirmation:
     handler: handlers/users_handler.post_confirmation
