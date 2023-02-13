@@ -43,6 +43,9 @@ functions:
           path: articles
           method: get
           cors: true
+          authorizer: 
+            name: customAuthorizer
+            identitySource: method.request.querystring.apiKey
   showArticle:
     handler: handlers/articles_handler.show
     timeout: 30
@@ -51,6 +54,9 @@ functions:
           path: articles/{id}
           method: get
           cors: true
+          authorizer: 
+            name: customAuthorizer
+            identitySource: method.request.querystring.apiKey
   listSources:
     handler: handlers/sources_handler.list
     timeout: 30
@@ -59,6 +65,9 @@ functions:
           path: sources
           method: get
           cors: true
+          authorizer: 
+            name: customAuthorizer
+            identitySource: method.request.querystring.apiKey
   showSource:
     handler: handlers/sources_handler.show
     timeout: 30
@@ -67,6 +76,9 @@ functions:
           path: sources/{id}
           method: get
           cors: true
+          authorizer: 
+            name: customAuthorizer
+            identitySource: method.request.querystring.apiKey
 
   updateSource:
     handler: handlers/sources_handler.update
