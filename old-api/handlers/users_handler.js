@@ -21,6 +21,7 @@ import * as querystring from "querystring";
 import AWS from "aws-sdk";
 import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
 import {subWeeks} from "date-fns";
+import { ObjectId } from 'mongoose';
 
 const poolData = {
   UserPoolId: process.env.COGNITO_USER_POOL,
@@ -743,6 +744,7 @@ export async function post_confirmation (event, context, callback) {
                     email: event.request.userAttributes['email'],
                     apiKey: randomKey.replace(/-/g, ""),
                     cognito_id: event.request.userAttributes['sub'],
+                    plan: ObjectId('63e40aac49e976a9c15dad4f')
                 });
                 let user = await newUser.save();
                 console.log(user);
@@ -755,7 +757,6 @@ export async function post_confirmation (event, context, callback) {
     }
     callback(null, event);
 }
-
 // /* Update information for payment user */
 // module.exports.update_payment = (event, context, callback) => {
 //   context.callbackWaitsForEmptyEventLoop = false;
