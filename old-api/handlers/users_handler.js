@@ -744,7 +744,7 @@ export async function post_confirmation (event, context, callback) {
                     email: event.request.userAttributes['email'],
                     apiKey: randomKey.replace(/-/g, ""),
                     cognito_id: event.request.userAttributes['sub'],
-                    plan: ObjectId('63e40aac49e976a9c15dad4f')
+                    plan: ObjectId('63f11ba3b1ab44c5ae9f3bfd')
                 });
                 let user = await newUser.save();
                 console.log(user);
