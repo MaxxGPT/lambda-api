@@ -24,22 +24,22 @@ export function show (event, context, callback) {
   let params = event.queryStringParameters ? event.queryStringParameters : {};
   Database.connectToDatabase()
     .then(() => {
-      ApiMiddleware.validate(params, (err) => {
-        if (err) {
-          callback(null, {
-            statusCode: err.statusCode || 500,
-            headers: { "Content-Type": "text/plain" },
-            body: err.message,
-          });
-        } else {
-          CreditsMiddleware.checkCreditsLeft(params, (err, data) => {
-            if (err) {
-              callback(null, {
-                statusCode: err.statusCode || 500,
-                headers: { "Content-Type": "text/plain" },
-                body: err.message,
-              });
-            } else {
+    //   ApiMiddleware.validate(params, (err) => {
+    //     if (err) {
+    //       callback(null, {
+    //         statusCode: err.statusCode || 500,
+    //         headers: { "Content-Type": "text/plain" },
+    //         body: err.message,
+    //       });
+    //     } else {
+    //       CreditsMiddleware.checkCreditsLeft(params, (err, data) => {
+    //         if (err) {
+    //           callback(null, {
+    //             statusCode: err.statusCode || 500,
+    //             headers: { "Content-Type": "text/plain" },
+    //             body: err.message,
+    //           });
+    //         } else {
               Article.findById(event.pathParameters.id).exec((err, article) => {
                 if (err) {
                   callback(null, {
@@ -48,26 +48,26 @@ export function show (event, context, callback) {
                     body: err.message,
                   });
                 } else {
-                  CreditsMiddleware.updateCreditsLeft(data, (err) => {
-                    if (err) {
-                      callback(null, {
-                        statusCode: err.statusCode || 500,
-                        headers: { "Content-Type": "text/plain" },
-                        body: err.message,
-                      });
-                    } else {
+                //   CreditsMiddleware.updateCreditsLeft(data, (err) => {
+                //     if (err) {
+                //       callback(null, {
+                //         statusCode: err.statusCode || 500,
+                //         headers: { "Content-Type": "text/plain" },
+                //         body: err.message,
+                //       });
+                //     } else {
                       callback(null, {
                         statusCode: 200,
                         body: JSON.stringify(article),
                       });
-                    }
-                  });
+                    //}
+                  //});
                 }
               });
-            }
-          });
-        }
-      });
+            //}
+          //});
+        //}
+      ///});
     })
     .catch((err) => {
       callback(null, {
@@ -85,22 +85,22 @@ export function list (event, context, callback) {
   let params = event.queryStringParameters ? event.queryStringParameters : {};
   Database.connectToDatabase()
     .then(() => {
-      ApiMiddleware.validate(params, (err) => {
-        if (err) {
-          callback(null, {
-            statusCode: err.statusCode || 500,
-            headers: { "Content-Type": "text/plain" },
-            body: err.message,
-          });
-        } else {
-          CreditsMiddleware.checkCreditsLeft(params, (err, data) => {
-            if (err) {
-              callback(null, {
-                statusCode: err.statusCode || 500,
-                headers: { "Content-Type": "text/plain" },
-                body: err.message,
-              });
-            } else {
+    //   ApiMiddleware.validate(params, (err) => {
+    //     if (err) {
+    //       callback(null, {
+    //         statusCode: err.statusCode || 500,
+    //         headers: { "Content-Type": "text/plain" },
+    //         body: err.message,
+    //       });
+    //     } else {
+    //       CreditsMiddleware.checkCreditsLeft(params, (err, data) => {
+    //         if (err) {
+    //           callback(null, {
+    //             statusCode: err.statusCode || 500,
+    //             headers: { "Content-Type": "text/plain" },
+    //             body: err.message,
+    //           });
+    //         } else {
               /* Setting sort field paramater */
               if (params.sortBy) {
                 sortBy[params.sortBy] = -1;
@@ -190,23 +190,23 @@ export function list (event, context, callback) {
                                 body: err.message,
                               });
                             } else {
-                              CreditsMiddleware.updateCreditsLeft(
-                                data,
-                                (err) => {
-                                  if (err) {
-                                    callback(null, {
-                                      statusCode: err.statusCode || 500,
-                                      headers: { "Content-Type": "text/plain" },
-                                      body: err.message,
-                                    });
-                                  } else {
+                            //   CreditsMiddleware.updateCreditsLeft(
+                            //     data,
+                            //     (err) => {
+                            //       if (err) {
+                            //         callback(null, {
+                            //           statusCode: err.statusCode || 500,
+                            //           headers: { "Content-Type": "text/plain" },
+                            //           body: err.message,
+                            //         });
+                            //       } else {
                                     callback(null, {
                                       statusCode: 200,
                                       body: JSON.stringify(articles),
                                     });
-                                  }
-                                }
-                              );
+                                  //}
+                                //}
+                              //);
                             }
                           }
                         );
@@ -238,28 +238,28 @@ export function list (event, context, callback) {
                         body: err.message,
                       });
                     } else {
-                      CreditsMiddleware.updateCreditsLeft(data, (err) => {
-                        if (err) {
-                          callback(null, {
-                            statusCode: err.statusCode || 500,
-                            headers: { "Content-Type": "text/plain" },
-                            body: err.message,
-                          });
-                        } else {
+                    //   CreditsMiddleware.updateCreditsLeft(data, (err) => {
+                    //     if (err) {
+                    //       callback(null, {
+                    //         statusCode: err.statusCode || 500,
+                    //         headers: { "Content-Type": "text/plain" },
+                    //         body: err.message,
+                    //       });
+                    //     } else {
                           callback(null, {
                             statusCode: 200,
                             body: JSON.stringify(articles),
                           });
-                        }
-                      });
+                        //}
+                      //});
                     }
                   }
                 );
               }
-            }
-          });
-        }
-      });
+            //}
+          //});
+        //}
+      //});
     })
     .catch((err) => {
       callback(null, {
