@@ -71,7 +71,14 @@ const userSchema = new Schema(
       type: String,
       default: "free",
     },
-    apiKey: String,
+    apiKey: {
+        type: String,
+        index: true
+    },
+    plan: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Plan'
+    },
     status: { type: "Boolean", default: false },
     history: [historySchema],
     credits_left: { type: Number, default: 100 },
