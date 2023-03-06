@@ -45,7 +45,7 @@ functions:
           cors: true
           authorizer: 
             name: customAuthorizer
-            identitySource: method.request.querystring.apiKey
+            identitySource: method.request.header.apiKey
   showArticle:
     handler: handlers/articles_handler.show
     timeout: 30
@@ -56,7 +56,7 @@ functions:
           cors: true
           authorizer: 
             name: customAuthorizer
-            identitySource: method.request.querystring.apiKey
+            identitySource: method.request.header.apiKey
   listSources:
     handler: handlers/sources_handler.list
     timeout: 30
@@ -67,7 +67,7 @@ functions:
           cors: true
           authorizer: 
             name: customAuthorizer
-            identitySource: method.request.querystring.apiKey
+            identitySource: method.request.header.apiKey
   showSource:
     handler: handlers/sources_handler.show
     timeout: 30
@@ -78,7 +78,7 @@ functions:
           cors: true
           authorizer: 
             name: customAuthorizer
-            identitySource: method.request.querystring.apiKey
+            identitySource: method.request.header.apiKey
 
   updateSource:
     handler: handlers/sources_handler.update
@@ -203,7 +203,7 @@ functions:
           cors: true
           authorizer: 
             name: customAuthorizer
-            identitySource: method.request.querystring.apiKey
+            identitySource: method.request.header.apiKey
   customAuthorizer:
     handler: handlers/authorizer_handler.authorize
           
