@@ -6,8 +6,9 @@ import moment from 'moment/moment.js'
 
 export const authorize = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    let params = event.queryStringParameters ? event.queryStringParameters : {};
+    let params = event.headers ? event.headers : {};
     const { apiKey } = params;
+    console.log(apiKey);
     let response = {
         "principalId": event.authorizationToken,
         "policyDocument": {
@@ -30,19 +31,24 @@ export const authorize = async (event, context) => {
             .unwind("plan");
 
         if (_user.length === 0) {
-            return "Unauthorized";
+            return response;
         }
+        console.log(_user);
         _user = _user[0];
         const _usage = await ApiUsage.findOneAndUpdate({
             user: _user._id,
             totalRequest: _user.plan.quota,
             day: _user.plan.quota === 'monthly' ? moment().format("MM/YYYY") : moment().format("DD/MM/YYYY")
         }, { $inc: { usage: 1 } }, { upsert: true, new: true });
-
+        console.log(_usage);
         if (_usage.usage < _usage.totalRequest) {
             response.policyDocument.Statement[0].Effect = 'Allow';
         }
-    } catch (error) { }
+    } catch (error) {
+        console.log(error);
+    }
+    console.log("Authorized successfully");
+    console.log(response);
     return response;
 };
 
