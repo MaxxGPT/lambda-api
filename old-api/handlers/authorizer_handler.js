@@ -31,7 +31,7 @@ export const authorize = async (event, context) => {
             .unwind("plan");
 
         if (_user.length === 0) {
-            return "Unauthorized";
+            return response;
         }
         console.log(_user);
         _user = _user[0];
