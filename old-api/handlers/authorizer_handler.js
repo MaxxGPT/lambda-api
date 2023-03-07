@@ -7,8 +7,8 @@ import moment from 'moment/moment.js'
 export const authorize = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
     let params = event.headers ? event.headers : {};
-    const { apiKey } = params;
-    console.log(apiKey);
+    const { authorizationToken } = event;
+    console.log(authorizationToken);
     let response = {
         "principalId": event.authorizationToken,
         "policyDocument": {
@@ -26,7 +26,7 @@ export const authorize = async (event, context) => {
     try {
         await Database.connectToDatabase()
         let _user = await User.aggregate()
-            .match({ apiKey })
+            .match({ apiKey: authorizationToken })
             .lookup({ from: 'Plan', localField: 'plan', foreignField: '_id', as: 'plan' })
             .unwind("plan");
 
