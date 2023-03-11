@@ -1,6 +1,20 @@
 service: aws-lambda-api-service
 #variablesResolutionMode: 20210326
 frameworkVersion: '3'
+custom:
+  customDomain:
+  domainName: api.cannabisnewsapi.ai
+  certificateName: 'api.cannabisnewsapi.ai'
+  endpointType: REGIONAL
+  apiType: rest
+  basePath: ''
+  stage: ${self:provider.stage}
+  createRoute53Record: true
+  #serverless-offline:
+    #httpPort: 3000
+  #mongodb: ${ssm:MONGODB_ATLAS_CLUSTER_URI}
+  #dotenv:
+    #include: []
 
 package:
   exclude:
@@ -187,6 +201,8 @@ functions:
           path: users/login
           method: post
           cors: true
+
+
   
   customAuthorizer:
     handler: handlers/authorizer_handler.authorize
@@ -200,16 +216,6 @@ functions:
     timeout: 60
     events:
       - schedule: cron(0 0 * * ? *)
-
-custom:
-  customDomain:
-    domainName: api.cannabisnewsapi.ai
-    certificateName: 'api.cannabisnewsapi.ai'
-    endpointType: REGIONAL
-    apiType: rest
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
 
 
       
