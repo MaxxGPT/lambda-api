@@ -10,11 +10,6 @@ custom:
   basePath: ''
   stage: ${self:provider.stage}
   createRoute53Record: true
-  #serverless-offline:
-    #httpPort: 3000
-  #mongodb: ${ssm:MONGODB_ATLAS_CLUSTER_URI}
-  #dotenv:
-    #include: []
 
 package:
   exclude:
@@ -26,6 +21,8 @@ provider:
   #lambdaHashingVersion: 20201221
   stage: ${opt:stage, 'dev'}
   region: us-east-1
+  apiGateway:
+    disableDefaultEndpoint: true
   vpc:
     securityGroupIds: 
       - sg-04724e3bcfdfb4efa

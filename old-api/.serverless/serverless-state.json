@@ -9,6 +9,9 @@
       "runtime": "nodejs14.x",
       "stage": "dev",
       "region": "us-east-1",
+      "apiGateway": {
+        "disableDefaultEndpoint": true
+      },
       "vpc": {
         "securityGroupIds": [
           "sg-04724e3bcfdfb4efa"
@@ -324,7 +327,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/articles_handler.list",
               "Runtime": "nodejs14.x",
@@ -368,7 +371,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/articles_handler.show",
               "Runtime": "nodejs14.x",
@@ -412,7 +415,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/sources_handler.list",
               "Runtime": "nodejs14.x",
@@ -456,7 +459,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/sources_handler.show",
               "Runtime": "nodejs14.x",
@@ -500,7 +503,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/sources_handler.update",
               "Runtime": "nodejs14.x",
@@ -544,7 +547,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/sources_handler.create",
               "Runtime": "nodejs14.x",
@@ -588,7 +591,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/sources_handler.remove",
               "Runtime": "nodejs14.x",
@@ -632,7 +635,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/subscriptions_handler.list",
               "Runtime": "nodejs14.x",
@@ -676,7 +679,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.create",
               "Runtime": "nodejs14.x",
@@ -720,7 +723,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.recover_password",
               "Runtime": "nodejs14.x",
@@ -764,7 +767,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.me",
               "Runtime": "nodejs14.x",
@@ -808,7 +811,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.get_api_key",
               "Runtime": "nodejs14.x",
@@ -852,7 +855,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.get_usage",
               "Runtime": "nodejs14.x",
@@ -896,7 +899,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.remove",
               "Runtime": "nodejs14.x",
@@ -940,7 +943,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.update",
               "Runtime": "nodejs14.x",
@@ -984,7 +987,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.change_password",
               "Runtime": "nodejs14.x",
@@ -1028,7 +1031,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.register",
               "Runtime": "nodejs14.x",
@@ -1072,7 +1075,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.login",
               "Runtime": "nodejs14.x",
@@ -1116,7 +1119,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/authorizer_handler.authorize",
               "Runtime": "nodejs14.x",
@@ -1160,7 +1163,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/users_handler.post_confirmation",
               "Runtime": "nodejs14.x",
@@ -1204,7 +1207,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z/aws-lambda-api-service.zip"
+                "S3Key": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z/aws-lambda-api-service.zip"
               },
               "Handler": "handlers/subscriptions_handler.updateRequestsPerCycle",
               "Runtime": "nodejs14.x",
@@ -1492,6 +1495,7 @@
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
               "Name": "dev-aws-lambda-api-service",
+              "DisableExecuteApiEndpoint": true,
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -3177,7 +3181,7 @@
               "Type": "TOKEN"
             }
           },
-          "ApiGatewayDeployment1678567446568": {
+          "ApiGatewayDeployment1678570894627": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -4990,7 +4994,7 @@
         ],
         "artifactsS3KeyDirname": "serverless/aws-lambda-api-service/dev/code-artifacts",
         "artifact": "/Users/maxxabillion/Developer/Projects/lambda-api/old-api/.serverless/aws-lambda-api-service.zip",
-        "artifactDirectoryName": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z"
+        "artifactDirectoryName": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z"
       },
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
@@ -5008,7 +5012,7 @@
     "artifact": "/Users/maxxabillion/Developer/Projects/lambda-api/old-api/.serverless/aws-lambda-api-service.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-lambda-api-service/dev/1678567453043-2023-03-11T20:44:13.043Z",
+    "artifactDirectoryName": "serverless/aws-lambda-api-service/dev/1678570901144-2023-03-11T21:41:41.144Z",
     "artifact": "aws-lambda-api-service.zip"
   }
 }
