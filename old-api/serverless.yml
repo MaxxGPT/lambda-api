@@ -1,12 +1,6 @@
 service: aws-lambda-api-service
 #variablesResolutionMode: 20210326
 frameworkVersion: '3'
-#custom:
-  #serverless-offline:
-    #httpPort: 3000
-  #mongodb: ${ssm:MONGODB_ATLAS_CLUSTER_URI}
-  #dotenv:
-    #include: []
 
 package:
   exclude:
@@ -196,6 +190,7 @@ functions:
   
   customAuthorizer:
     handler: handlers/authorizer_handler.authorize
+           
   cognito_post_confirmation:
     handler: handlers/users_handler.post_confirmation
     timeout: 30
@@ -205,8 +200,21 @@ functions:
     timeout: 60
     events:
       - schedule: cron(0 0 * * ? *)
+
+custom:
+  customDomain:
+    domainName: api.cannabisnewsapi.ai
+    certificateName: 'api.cannabisnewsapi.ai'
+    endpointType: REGIONAL
+    apiType: rest
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+
       
 useDotenv: true
 plugins:
   - serverless-offline
   - serverless-middleware
+  - serverless-domain-manager
