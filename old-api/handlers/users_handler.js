@@ -22,6 +22,7 @@ import AWS from "aws-sdk";
 import * as AmazonCognitoIdentity from "amazon-cognito-identity-js";
 import {subWeeks} from "date-fns";
 import mongoose from 'mongoose';
+import axios from 'axios';
 
 const poolData = {
   UserPoolId: process.env.COGNITO_USER_POOL,
@@ -757,6 +758,38 @@ export async function post_confirmation (event, context, callback) {
     }
     callback(null, event);
 }
+
+export async function pre_registration (event, context, callback) {
+    console.log(`Start Event: ${JSON.stringify(event, null, 2)}`);
+    context.callbackWaitsForEmptyEventLoop = false;
+    try{
+        if (event.userPoolId == process.env.COGNITO_USER_POOL) {
+            if (event.triggerSource == 'PreSignUp_SignUp') {
+                if (!event.request.validationData) {
+                    throw new Error("Missing validation data");
+                }
+                const formData = new URLSearchParams();
+                formData.append('secret', process.env.CLOUDFLARE_TURNSTILE_KEY);
+                formData.append('response', event.request.validationData.captcha);
+                
+                const verifyResponse = await axios({
+                    method: "post",
+                    url: "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+                    data: formData,
+                });
+                console.log(verifyResponse.data);
+                if(!verifyResponse.data.success) throw new Error("Invalid token");
+            }
+        }
+    }
+    catch(err){
+        console.log(err.stack);
+        callback(err);
+    }
+    callback(null, event);
+}
+
+
 // /* Update information for payment user */
 // module.exports.update_payment = (event, context, callback) => {
 //   context.callbackWaitsForEmptyEventLoop = false;

@@ -37,6 +37,7 @@ provider:
     COGNITO_REGION: ${file(./env.yml):${opt:stage}.COGNITO_REGION}
     COGNITO_USER_POOL_NAME: ${file(./env.yml):${opt:stage}.COGNITO_USER_POOL_NAME}
     LAMBDA_FUNCTION_NAME: ${file(./env.yml):${opt:stage}.LAMBDA_FUNCTION_NAME}
+    CLOUDFLARE_TURNSTILE_KEY: ${ssm:CLOUDFLARE_TURNSTILE_KEY}
     
 
 functions:
@@ -206,6 +207,9 @@ functions:
            
   cognito_post_confirmation:
     handler: handlers/users_handler.post_confirmation
+    timeout: 30
+  cognito_pre_registraion:
+    handler: handlers/users_handler.pre_registration
     timeout: 30
 
   updateRequestsPerCycle:
