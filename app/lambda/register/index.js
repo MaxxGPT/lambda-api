@@ -1,13 +1,13 @@
 exports.handler = async function (event, context, callback) {
   console.log(JSON.stringify(event, null, 2));
   const template = () => `
-    <h1>Please Click link to activate your account</h1>
+    <h3>Click link to activate your account</h3>
     <p>{## ACTIVATE ##}</p>
-    <hr/>
-    <p><strong style="font-weight: bold"><a href="https://join.slack.com/t/cannabisnewapi/shared_invite/zt-1u3hfd1dw-DGZhJbwTXH03Xqy309QoOg">Join our slack channel to receive your api key</a></strong></p>
-    <hr/>
+    
+    <p><strong style="font-weight: bold"><a href="https://join.slack.com/t/cannabisnewapi/shared_invite/zt-1u3hfd1dw-DGZhJbwTXH03Xqy309QoOg">Join our Slack Channel to receive your API key</a></strong></p>
+    
     <p><a href="docs.cannabisnewsapi.ai">Developer Docs</a></p>
-
+    
   `
   switch (event.triggerSource) {
     case 'CustomMessage_SignUp':
