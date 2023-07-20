@@ -143,16 +143,21 @@ export function list (event, context, callback) {
                   };
                 }
                 /* If there is no date param, retrieve from last 6 months*/
-              } else {
-                let currentDate = new Date();
-                let sixMonthRange = currentDate.setMonth(
-                  currentDate.getMonth() - 6
-                );
-                //console.log(sixMonthRange, new Date(sixMonthRange).toISOString());
-                queryParams["publishedAt"] = {
-                  $gte: new Date(sixMonthRange).toISOString(),
-                };
+              } 
+
+              if(params.ORG){
+                queryParams["ORG"] = params.ORG;
               }
+            //   else {
+            //     let currentDate = new Date();
+            //     let sixMonthRange = currentDate.setMonth(
+            //       currentDate.getMonth() - 6
+            //     );
+            //     //console.log(sixMonthRange, new Date(sixMonthRange).toISOString());
+            //     queryParams["publishedAt"] = {
+            //       $gte: new Date(sixMonthRange).toISOString(),
+            //     };
+            //   }
               //console.log(params);
               /* Search domains first, then searching by params with source_id */
               if (params.domains) {
