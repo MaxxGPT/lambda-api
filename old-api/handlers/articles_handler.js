@@ -148,6 +148,14 @@ export function list (event, context, callback) {
               if(params.ORG){
                 queryParams["ORG"] = params.ORG;
               }
+
+              if(params.GPE){
+                queryParams["GPE"] = params.GPE;
+              }
+
+              if(params.PERSON){
+                queryParams["PERSON"] = params.PERSON;
+              }
             //   else {
             //     let currentDate = new Date();
             //     let sixMonthRange = currentDate.setMonth(
