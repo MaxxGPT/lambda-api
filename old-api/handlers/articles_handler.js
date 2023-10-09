@@ -14,11 +14,6 @@ import * as ApiMiddleware from '../middlewares/api_key_middleware.js'
 import * as CreditsMiddleware from '../middlewares/credits_middldeware.js'
 
 
-
-
-
-
-
 export function show (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   let params = event.queryStringParameters ? event.queryStringParameters : {};
@@ -282,6 +277,42 @@ export function list (event, context, callback) {
       });
     });
 };
+
+export function mark_as_tweeted(event, context, callback) {
+  context.callbackWaitsForEmptyEventLoop = false;
+  
+  // Extract the article ID from the event body (assuming it's passed in the body)
+  const body = JSON.parse(event.body);
+  const articleId = body._id;
+
+  // Use the existing connection management approach
+  Database.connectToDatabase()
+      .then(() => {
+          Article.findByIdAndUpdate(articleId, { tweeted: true }, { new: true })
+              .then(updatedArticle => {
+                  callback(null, {
+                      statusCode: 200,
+                      body: JSON.stringify({ message: "Article marked as tweeted successfully!", article: updatedArticle })
+                  });
+              })
+              .catch(err => {
+                  callback(null, {
+                      statusCode: err.statusCode || 500,
+                      headers: { "Content-Type": "text/plain" },
+                      body: `Error updating the article: ${err.message}`,
+                  });
+              });
+      })
+      .catch(err => {
+          callback(null, {
+              statusCode: err.statusCode || 500,
+              headers: { "Content-Type": "text/plain" },
+              body: `Error connecting to the database: ${err.message}`,
+          });
+      });
+}
+
+
 
 function getArticles(req, cb) {
   Article.find(req.queryParams, null, { limit: req.limit })

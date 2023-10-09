@@ -199,6 +199,17 @@ functions:
           path: users/login
           method: post
           cors: true
+    markArticleAsTweeted:
+      handler: handlers/articles_handler.mark_as_tweeted
+      timeout: 30
+      events:
+        - http:
+            path: articles/{id}/mark-tweeted
+            method: patch
+            cors: true
+            authorizer:
+              name: customAuthorizer
+              identitySource: method.request.header.apiKey
 
 
   

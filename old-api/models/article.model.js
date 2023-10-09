@@ -21,7 +21,8 @@ var articlesSchema = new mongoose.Schema({
     summarization: String,
     title: String,
     url: String,
-    urlToImage: String
+    urlToImage: String,
+    tweeted: Boolean
 }, { collection: 'Articles' });
 
 const index = { title: 'text', content: 'text' };
