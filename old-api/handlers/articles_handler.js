@@ -282,8 +282,7 @@ export function mark_as_tweeted(event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
   
   // Extract the article ID from the event body (assuming it's passed in the body)
-  const body = JSON.parse(event.body);
-  const articleId = body._id;
+  const articleId = event.pathParameters.id;
 
   // Use the existing connection management approach
   Database.connectToDatabase()
