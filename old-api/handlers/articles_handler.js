@@ -280,8 +280,20 @@ export function list (event, context, callback) {
 
 export function mark_as_tweeted(event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
+
+  // Extract the provided API key from the headers
+  const providedApiKey = event.headers.apiKey;
+
+  // Check if providedApiKey matches SPECIAL_UPDATE_API_KEY from the environment variables
+  if (providedApiKey !== process.env.SPECIAL_UPDATE_API_KEY) {
+      return callback(null, {
+          statusCode: 403,
+          headers: { "Content-Type": "text/plain" },
+          body: "Unauthorized: Special API key required.",
+      });
+  }
   
-  // Extract the article ID from the event body (assuming it's passed in the body)
+  // Extract the article ID from the parameeters
   const articleId = event.pathParameters.id;
 
   // Use the existing connection management approach

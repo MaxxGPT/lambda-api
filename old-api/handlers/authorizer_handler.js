@@ -1,14 +1,18 @@
-import * as Database from '../db.js'
-import { User } from '../models/user.model.js'
-import { ApiUsage } from '../models/apiUsage.model.js'
-import moment from 'moment/moment.js'
-
+import * as Database from '../db.js';
+import { User } from '../models/user.model.js';
+import { ApiUsage } from '../models/apiUsage.model.js';
+import moment from 'moment/moment.js';
 
 export const authorize = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
+
+    console.log('Incoming event:', JSON.stringify(event, null, 2));
+
     let params = event.headers ? event.headers : {};
     const { authorizationToken } = event;
-    console.log(authorizationToken);
+
+    console.log('Authorization Token:', authorizationToken);
+
     let response = {
         "principalId": event.authorizationToken,
         "policyDocument": {
@@ -24,31 +28,42 @@ export const authorize = async (event, context) => {
     };
 
     try {
-        await Database.connectToDatabase()
+        await Database.connectToDatabase();
+        console.log('Connected to the database successfully.');
+
         let _user = await User.aggregate()
             .match({ apiKey: authorizationToken })
             .lookup({ from: 'Plan', localField: 'plan', foreignField: '_id', as: 'plan' })
             .unwind("plan");
 
+        console.log('Fetched user:', JSON.stringify(_user, null, 2));
+
         if (_user.length === 0) {
+            console.log('No user associated with provided API key.');
             return response;
         }
-        console.log(_user);
+
         _user = _user[0];
+
         const _usage = await ApiUsage.findOneAndUpdate({
             user: _user._id,
             totalRequest: _user.plan.quota,
             day: _user.plan.quota === 'monthly' ? moment().format("MM/YYYY") : moment().format("DD/MM/YYYY")
         }, { $inc: { usage: 1 } }, { upsert: true, new: true });
-        console.log(_usage);
+
+        console.log('API usage details:', JSON.stringify(_usage, null, 2));
+
         if (_usage.usage < _usage.totalRequest) {
             response.policyDocument.Statement[0].Effect = 'Allow';
+            console.log('User is within the quota. Allowing access.');
+        } else {
+            console.log('User has exceeded the quota. Denying access.');
         }
     } catch (error) {
-        console.log(error);
+        console.log('Error occurred:', error);
     }
-    console.log("Authorized successfully");
-    console.log(response);
+
+    console.log('Final authorizer response:', JSON.stringify(response, null, 2));
     return response;
 };
 

@@ -38,6 +38,7 @@ provider:
     COGNITO_USER_POOL_NAME: ${file(./env.yml):${opt:stage}.COGNITO_USER_POOL_NAME}
     LAMBDA_FUNCTION_NAME: ${file(./env.yml):${opt:stage}.LAMBDA_FUNCTION_NAME}
     CLOUDFLARE_TURNSTILE_KEY: ${ssm:CLOUDFLARE_TURNSTILE_KEY}
+    SPECIAL_UPDATE_API_KEY: $file(./env.yml):${opt:stage}.SPECIAL_UPDATE_API_KEY}
     
 
 functions:
